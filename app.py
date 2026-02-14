@@ -17,266 +17,306 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------- PREMIUM PROFESSIONAL CSS ----------------
+# ---------------- PROFESSIONAL LAW ENFORCEMENT CSS ----------------
 st.markdown("""
 <style>
-/* Main Background with Pattern */
+/* Main Background - Serious Law Enforcement Theme */
 [data-testid="stAppViewContainer"] {
     background: 
-        linear-gradient(135deg, rgba(15, 12, 41, 0.95) 0%, rgba(48, 43, 99, 0.95) 50%, rgba(36, 36, 62, 0.95) 100%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.03) 10px, rgba(255,255,255,.03) 20px);
+        linear-gradient(135deg, rgba(10, 10, 30, 0.98) 0%, rgba(25, 25, 60, 0.98) 25%, rgba(15, 15, 40, 0.98) 50%, rgba(30, 30, 70, 0.98) 75%, rgba(10, 10, 30, 0.98) 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 0, 0, 0.05) 2px, rgba(139, 0, 0, 0.05) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 0, 0, 0.05) 2px, rgba(139, 0, 0, 0.05) 4px);
     color: #FFFFFF;
 }
 
-/* Sidebar - Dark Professional */
+/* Sidebar - Dark Command Center */
 [data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-    border-right: 3px solid #dc143c;
+    background: linear-gradient(180deg, #0a0a1e 0%, #1a1a3c 50%, #0f0f28 100%);
+    border-right: 4px solid #8b0000;
+    box-shadow: 5px 0 20px rgba(139, 0, 0, 0.3);
 }
 
-/* Sidebar Content - Enhanced Visibility */
+/* Sidebar Content - Maximum Visibility */
 [data-testid="stSidebar"] * {
     color: #ffffff !important;
 }
 
 [data-testid="stSidebar"] label {
     color: #ffffff !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Make ALL text highly visible */
+[data-testid="stSidebar"] .stMarkdown {
+    color: #ffffff !important;
+}
+
+/* ALL TEXT - Maximum Visibility */
 label, .stMarkdown, .stText, .stSelectbox label,
 .stNumberInput label, .stRadio label, p, span, div {
     color: #ffffff !important;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Select box text visibility */
+/* Select Box - HIGH CONTRAST */
 .stSelectbox div[data-baseweb="select"] > div {
-    background-color: rgba(30, 60, 114, 0.8) !important;
+    background: linear-gradient(135deg, #1a1a3c 0%, #0f0f28 100%) !important;
     color: #ffffff !important;
-    border: 2px solid #dc143c !important;
+    border: 3px solid #8b0000 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.1);
 }
 
-/* Select box options */
+/* Select Box Dropdown Menu */
+[data-baseweb="popover"] {
+    background: #0a0a1e !important;
+    border: 3px solid #8b0000 !important;
+}
+
+/* Select Box Options */
+.stSelectbox li {
+    background: #0a0a1e !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    padding: 12px 20px !important;
+}
+
+.stSelectbox li:hover {
+    background: linear-gradient(135deg, #8b0000, #dc143c) !important;
+    color: #ffffff !important;
+}
+
+/* Select Box Selected Text */
 .stSelectbox div[data-baseweb="select"] span {
     color: #ffffff !important;
+    font-weight: 700 !important;
 }
 
-/* Number input visibility */
+/* Number Input - HIGH CONTRAST */
 .stNumberInput input {
-    background-color: rgba(30, 60, 114, 0.8) !important;
+    background: linear-gradient(135deg, #1a1a3c 0%, #0f0f28 100%) !important;
     color: #ffffff !important;
-    border: 2px solid #dc143c !important;
-    font-weight: 600 !important;
+    border: 3px solid #8b0000 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
 }
 
 /* Main Title */
 h1 {
     color: #ffffff !important;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.8), 0 0 30px rgba(220, 20, 60, 0.5);
-    font-size: 3.5rem !important;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.9), 0 0 40px rgba(139, 0, 0, 0.6);
+    font-size: 4rem !important;
     font-weight: 900 !important;
-    padding: 25px 0;
+    padding: 30px 0;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
-/* Subheaders - High Visibility */
+/* Subheaders - Maximum Visibility */
 h2, h3 {
-    color: #ffd700 !important;
-    font-weight: 800 !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    color: #ff4444 !important;
+    font-weight: 900 !important;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
     margin-top: 20px !important;
+    letter-spacing: 2px;
 }
 
 h4 {
     color: #ffffff !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }
 
 /* Metric Cards - Enhanced */
 [data-testid="metric-container"] {
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.25), rgba(139, 0, 0, 0.2));
-    border: 3px solid #dc143c;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 12px 35px rgba(220, 20, 60, 0.4), inset 0 1px 3px rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(80, 0, 0, 0.25));
+    border: 4px solid #8b0000;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    position: relative;
+}
+
+[data-testid="metric-container"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
 }
 
 [data-testid="metric-container"]:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 18px 45px rgba(220, 20, 60, 0.6), inset 0 1px 3px rgba(255,255,255,0.2);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(139, 0, 0, 0.7), inset 0 2px 5px rgba(255, 255, 255, 0.2);
 }
 
 [data-testid="stMetricValue"] {
-    font-size: 3rem !important;
+    font-size: 3.5rem !important;
     font-weight: 900 !important;
-    color: #ff4444 !important;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(255, 68, 68, 0.5);
+    color: #ff0000 !important;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.9), 0 0 30px rgba(255, 0, 0, 0.6);
 }
 
 [data-testid="stMetricLabel"] {
     color: #ffffff !important;
-    font-size: 1.2rem !important;
-    font-weight: 700 !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 [data-testid="stMetricDelta"] {
-    font-size: 1.2rem !important;
-    font-weight: 700 !important;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Buttons - Premium Style */
+/* Buttons - Professional Command Style */
 .stButton>button {
-    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%) !important;
+    background: linear-gradient(135deg, #8b0000 0%, #5a0000 100%) !important;
     color: white !important;
     font-weight: 900 !important;
-    font-size: 1.2rem !important;
-    border-radius: 15px !important;
-    padding: 18px 45px !important;
-    border: 3px solid #ffffff;
-    box-shadow: 0 10px 25px rgba(220, 20, 60, 0.5), inset 0 1px 3px rgba(255,255,255,0.2);
+    font-size: 1.3rem !important;
+    border-radius: 12px !important;
+    padding: 20px 50px !important;
+    border: 4px solid #ff0000;
+    box-shadow: 0 12px 30px rgba(139, 0, 0, 0.6), inset 0 2px 5px rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease !important;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .stButton>button:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(220, 20, 60, 0.7), inset 0 1px 3px rgba(255,255,255,0.3);
-    background: linear-gradient(135deg, #ff1744 0%, #dc143c 100%) !important;
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 18px 40px rgba(139, 0, 0, 0.8), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%) !important;
+    border-color: #ffffff;
 }
 
 /* Download Button */
 .stDownloadButton>button {
-    background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%) !important;
+    background: linear-gradient(135deg, #003d82 0%, #001f42 100%) !important;
     color: white !important;
-    font-weight: 700 !important;
-    border-radius: 12px !important;
-    padding: 12px 30px !important;
-    border: 2px solid #ffffff;
-    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.4);
+    font-weight: 800 !important;
+    border-radius: 10px !important;
+    padding: 15px 35px !important;
+    border: 3px solid #0066cc;
+    box-shadow: 0 10px 25px rgba(0, 61, 130, 0.5);
 }
 
 .stDownloadButton>button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(30, 136, 229, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 61, 130, 0.7);
 }
 
 /* Dataframe Styling */
 [data-testid="stDataFrame"] {
-    background: rgba(26, 26, 46, 0.7);
+    background: rgba(10, 10, 30, 0.8);
     border-radius: 15px;
-    border: 2px solid #dc143c;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 3px solid #8b0000;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 /* Divider */
 hr {
-    border: 2px solid #dc143c;
-    margin: 30px 0;
-    box-shadow: 0 2px 10px rgba(220, 20, 60, 0.5);
+    border: 3px solid #8b0000;
+    margin: 40px 0;
+    box-shadow: 0 3px 15px rgba(139, 0, 0, 0.6);
 }
 
-/* Info/Warning/Success Boxes - High Visibility */
+/* Alert Boxes - High Visibility */
 .stAlert {
-    background: rgba(26, 26, 46, 0.9) !important;
+    background: rgba(10, 10, 30, 0.95) !important;
     border-radius: 12px;
-    border-left: 5px solid #dc143c;
+    border-left: 6px solid #8b0000;
     padding: 20px;
     color: #ffffff !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    font-weight: 700 !important;
 }
 
 .stSuccess {
-    background: rgba(27, 94, 32, 0.9) !important;
-    border-left: 5px solid #4caf50 !important;
+    background: rgba(0, 50, 0, 0.95) !important;
+    border-left: 6px solid #00ff00 !important;
 }
 
 .stInfo {
-    background: rgba(13, 71, 161, 0.9) !important;
-    border-left: 5px solid #2196f3 !important;
+    background: rgba(0, 20, 60, 0.95) !important;
+    border-left: 6px solid #0066ff !important;
 }
 
 /* Tabs */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 10px;
-    background: rgba(26, 26, 46, 0.7);
+    gap: 15px;
+    background: rgba(10, 10, 30, 0.8);
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
+    border: 2px solid #8b0000;
 }
 
 .stTabs [data-baseweb="tab"] {
-    background: rgba(30, 60, 114, 0.6);
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(80, 0, 0, 0.3));
     border-radius: 12px;
     color: #ffffff;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 15px 30px;
-    border: 2px solid transparent;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 18px 35px;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, #dc143c, #8b0000);
+    background: linear-gradient(135deg, #8b0000, #dc143c);
     color: white;
-    border: 2px solid #ffffff;
-    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.5);
-}
-
-/* File Uploader - High Visibility */
-[data-testid="stFileUploader"] {
-    background: rgba(30, 60, 114, 0.6);
-    border-radius: 12px;
-    padding: 25px;
-    border: 3px dashed #ffd700;
-}
-
-[data-testid="stFileUploader"] label {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    font-size: 1.1rem !important;
+    border: 3px solid #ff0000;
+    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.6);
 }
 
 /* Radio Buttons - High Visibility */
 .stRadio > div {
-    background: rgba(30, 60, 114, 0.5);
+    background: rgba(26, 26, 60, 0.6);
     border-radius: 12px;
-    padding: 20px;
-    border: 2px solid #dc143c;
+    padding: 25px;
+    border: 3px solid #8b0000;
 }
 
 .stRadio label {
     color: #ffffff !important;
-    font-weight: 700 !important;
-    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
 }
 
-/* Success message animation - Professional pulse */
-@keyframes professionalPulse {
+/* Professional Alert Animation */
+@keyframes criticalPulse {
     0%, 100% { 
         transform: scale(1);
-        box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+        box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
     }
     50% { 
         transform: scale(1.02);
-        box-shadow: 0 0 40px rgba(220, 20, 60, 0.6);
+        box-shadow: 0 0 60px rgba(139, 0, 0, 0.8);
     }
 }
 
 .prediction-complete {
-    animation: professionalPulse 2s ease-in-out 3;
+    animation: criticalPulse 2.5s ease-in-out 3;
 }
 
-/* Smooth entrance animation */
-@keyframes slideIn {
+/* Professional Entrance */
+@keyframes commandDeploy {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
     to {
         opacity: 1;
@@ -285,24 +325,25 @@ hr {
 }
 
 .element-container {
-    animation: slideIn 0.4s ease-out;
+    animation: commandDeploy 0.5s ease-out;
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- PROFESSIONAL TITLE ----------------
+# ---------------- PROFESSIONAL LAW ENFORCEMENT TITLE ----------------
 st.markdown("""
-<div style='text-align: center; margin-bottom: 40px;'>
-    <h1 style='margin-bottom: 15px; letter-spacing: 3px;'>🚨 CRIME INTELLIGENCE PRO 🚨</h1>
-    <p style='font-size: 1.6rem; color: #ffd700; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>
+<div style='text-align: center; margin-bottom: 50px;'>
+    <h1 style='margin-bottom: 20px; letter-spacing: 5px;'>🚨 CRIME INTELLIGENCE PRO 🚨</h1>
+    <p style='font-size: 1.8rem; color: #ff4444; font-weight: 900; text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+              letter-spacing: 2px; text-transform: uppercase;'>
         Advanced AI-Powered Crime Analytics & Prediction System
     </p>
-    <div style='display: inline-block; background: linear-gradient(135deg, #dc143c, #8b0000); 
-                padding: 12px 30px; border-radius: 30px; margin-top: 20px; 
-                box-shadow: 0 8px 20px rgba(220,20,60,0.6); border: 2px solid #ffd700;'>
-        <span style='color: white; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px;'>
-            🎯 PROFESSIONAL CRIME ANALYSIS PLATFORM
+    <div style='display: inline-block; background: linear-gradient(135deg, #8b0000, #5a0000); 
+                padding: 15px 40px; border-radius: 30px; margin-top: 25px; 
+                box-shadow: 0 10px 25px rgba(139,0,0,0.7); border: 3px solid #ff0000;'>
+        <span style='color: white; font-weight: 900; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase;'>
+            🎯 PROFESSIONAL LAW ENFORCEMENT PLATFORM
         </span>
     </div>
 </div>
@@ -310,7 +351,7 @@ st.markdown("""
 
 # ---------------- ENHANCED SIDEBAR ----------------
 with st.sidebar:
-    st.markdown("## 🎯 CONTROL PANEL")
+    st.markdown("## 🎯 COMMAND CENTER")
     st.markdown("---")
     
     # Navigation with icons
@@ -322,41 +363,23 @@ with st.sidebar:
     
     st.markdown("---")
     
-    # File Upload Section
-    st.markdown("### 📁 Data Management")
-    uploaded_file = st.file_uploader(
-        "Upload Crime Dataset (CSV)", 
-        type=["csv"],
-        help="Upload your custom crime data or use sample data"
-    )
-    
-    if uploaded_file:
-        st.success("✅ File uploaded successfully!")
-    else:
-        st.info("📊 Using sample dataset")
-    
-    st.markdown("---")
-    
     # Stats Summary in Sidebar
-    st.markdown("### 📈 Quick Stats")
+    st.markdown("### 📈 System Status")
 
-# ---------------- DATA LOADING ----------------
+# ---------------- DATA LOADING (NO FILE UPLOAD) ----------------
 @st.cache_data
-def load_data(file):
-    if file:
-        return pd.read_csv(file)
-    else:
-        years = np.arange(2015, 2024)
-        return pd.DataFrame({
-            "Year": years,
-            "Theft": [400, 450, 480, 500, 550, 600, 650, 700, 720],
-            "Assault": [300, 320, 350, 370, 400, 420, 450, 470, 500],
-            "Burglary": [200, 210, 230, 240, 260, 280, 300, 320, 340],
-            "Robbery": [150, 160, 175, 185, 200, 215, 230, 245, 260],
-            "Fraud": [100, 120, 140, 160, 180, 200, 220, 240, 255]
-        })
+def load_data():
+    years = np.arange(2015, 2024)
+    return pd.DataFrame({
+        "Year": years,
+        "Theft": [400, 450, 480, 500, 550, 600, 650, 700, 720],
+        "Assault": [300, 320, 350, 370, 400, 420, 450, 470, 500],
+        "Burglary": [200, 210, 230, 240, 260, 280, 300, 320, 340],
+        "Robbery": [150, 160, 175, 185, 200, 215, 230, 245, 260],
+        "Fraud": [100, 120, 140, 160, 180, 200, 220, 240, 255]
+    })
 
-df = load_data(uploaded_file)
+df = load_data()
 
 # Update sidebar stats
 with st.sidebar:
@@ -364,6 +387,7 @@ with st.sidebar:
     st.metric("Total Crimes Recorded", f"{int(total_crimes):,}")
     st.metric("Crime Categories", len(df.columns) - 1)
     st.metric("Years Analyzed", len(df))
+    st.metric("Database Status", "🟢 ONLINE")
 
 st.markdown("---")
 
@@ -374,11 +398,13 @@ if "Crime Analysis" in menu:
     
     # Header Section
     st.markdown("""
-    <div style='background: linear-gradient(135deg, rgba(220,20,60,0.3), rgba(139,0,0,0.3)); 
-                border-left: 6px solid #dc143c; padding: 25px; border-radius: 15px; margin-bottom: 30px;
-                box-shadow: 0 8px 20px rgba(220,20,60,0.3); border: 2px solid rgba(220,20,60,0.5);'>
-        <h2 style='color: #ffd700; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>📊 COMPREHENSIVE CRIME TREND ANALYSIS</h2>
-        <p style='color: #ffffff; margin-top: 15px; font-size: 1.2rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
+    <div style='background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(80,0,0,0.4)); 
+                border-left: 8px solid #8b0000; padding: 30px; border-radius: 15px; margin-bottom: 35px;
+                box-shadow: 0 10px 25px rgba(139,0,0,0.4); border: 3px solid rgba(139,0,0,0.6);'>
+        <h2 style='color: #ff4444; margin: 0; text-shadow: 3px 3px 8px rgba(0,0,0,0.9); letter-spacing: 2px;'>
+            📊 COMPREHENSIVE CRIME TREND ANALYSIS
+        </h2>
+        <p style='color: #ffffff; margin-top: 20px; font-size: 1.3rem; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.9);'>
             Advanced statistical analysis and visualization of crime patterns
         </p>
     </div>
@@ -451,9 +477,9 @@ if "Crime Analysis" in menu:
             y=df[crime_type],
             mode='lines+markers',
             name=crime_type,
-            line=dict(color='#dc143c', width=4),
-            marker=dict(size=14, color='#ff1744', 
-                       line=dict(color='white', width=2)),
+            line=dict(color='#ff0000', width=5),
+            marker=dict(size=16, color='#dc143c', 
+                       line=dict(color='white', width=3)),
             hovertemplate='<b>Year: %{x}</b><br>Cases: %{y}<extra></extra>'
         ))
         
@@ -462,13 +488,13 @@ if "Crime Analysis" in menu:
             xaxis_title="Year",
             yaxis_title="Number of Cases",
             hovermode='x unified',
-            plot_bgcolor='rgba(26, 26, 46, 0.5)',
+            plot_bgcolor='rgba(10, 10, 30, 0.6)',
             paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(color='#ffffff', size=14),
-            title_font=dict(size=22, color='#ffd700', family='Arial Black'),
-            xaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-            yaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-            height=500
+            font=dict(color='#ffffff', size=15, family='Arial Black'),
+            title_font=dict(size=24, color='#ff4444', family='Arial Black'),
+            xaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+            yaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+            height=550
         )
         
         st.plotly_chart(fig, use_container_width=True)
@@ -479,7 +505,7 @@ if "Crime Analysis" in menu:
         # Multi-line chart for all crime types
         fig2 = go.Figure()
         
-        colors = ['#dc143c', '#ff9800', '#ffd700', '#4caf50', '#2196f3']
+        colors = ['#ff0000', '#ff6600', '#ffcc00', '#00ff00', '#0099ff']
         
         for idx, col in enumerate(df.columns[1:]):
             fig2.add_trace(go.Scatter(
@@ -487,8 +513,8 @@ if "Crime Analysis" in menu:
                 y=df[col],
                 mode='lines+markers',
                 name=col,
-                line=dict(width=3, color=colors[idx % len(colors)]),
-                marker=dict(size=10)
+                line=dict(width=4, color=colors[idx % len(colors)]),
+                marker=dict(size=12)
             ))
         
         fig2.update_layout(
@@ -496,14 +522,14 @@ if "Crime Analysis" in menu:
             xaxis_title="Year",
             yaxis_title="Number of Cases",
             hovermode='x unified',
-            plot_bgcolor='rgba(26, 26, 46, 0.5)',
+            plot_bgcolor='rgba(10, 10, 30, 0.6)',
             paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(color='#ffffff', size=14),
-            title_font=dict(size=22, color='#ffd700', family='Arial Black'),
-            xaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-            yaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-            legend=dict(bgcolor='rgba(26, 26, 46, 0.8)', font=dict(color='#ffffff')),
-            height=500
+            font=dict(color='#ffffff', size=15, family='Arial Black'),
+            title_font=dict(size=24, color='#ff4444', family='Arial Black'),
+            xaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+            yaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+            legend=dict(bgcolor='rgba(10, 10, 30, 0.9)', font=dict(color='#ffffff', size=13)),
+            height=550
         )
         
         st.plotly_chart(fig2, use_container_width=True)
@@ -519,11 +545,11 @@ if "Crime Analysis" in menu:
                 marker=dict(
                     color=latest_data.values,
                     colorscale='Reds',
-                    line=dict(color='white', width=2)
+                    line=dict(color='white', width=3)
                 ),
                 text=latest_data.values,
                 textposition='outside',
-                textfont=dict(color='#ffffff', size=14, family='Arial Black')
+                textfont=dict(color='#ffffff', size=16, family='Arial Black')
             )
         ])
         
@@ -531,13 +557,13 @@ if "Crime Analysis" in menu:
             title=f"Crime Statistics - {int(df.iloc[-1, 0])}",
             xaxis_title="Crime Type",
             yaxis_title="Cases",
-            plot_bgcolor='rgba(26, 26, 46, 0.5)',
+            plot_bgcolor='rgba(10, 10, 30, 0.6)',
             paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(color='#ffffff', size=14),
-            title_font=dict(size=20, color='#ffd700', family='Arial Black'),
+            font=dict(color='#ffffff', size=15, family='Arial Black'),
+            title_font=dict(size=22, color='#ff4444', family='Arial Black'),
             xaxis=dict(color='#ffffff'),
             yaxis=dict(color='#ffffff'),
-            height=400
+            height=450
         )
         
         st.plotly_chart(fig3, use_container_width=True)
@@ -549,9 +575,11 @@ if "Crime Analysis" in menu:
         
         with col_stat1:
             st.markdown("""
-            <div style='background: rgba(30,60,114,0.6); padding: 25px; border-radius: 12px; 
-                        border-left: 5px solid #dc143c; box-shadow: 0 8px 20px rgba(0,0,0,0.4);'>
-                <h4 style='color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>📊 Descriptive Statistics</h4>
+            <div style='background: rgba(26,26,60,0.7); padding: 30px; border-radius: 15px; 
+                        border-left: 6px solid #8b0000; box-shadow: 0 10px 25px rgba(0,0,0,0.5);'>
+                <h4 style='color: #ff4444; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); letter-spacing: 1px;'>
+                    📊 DESCRIPTIVE STATISTICS
+                </h4>
             </div>
             """, unsafe_allow_html=True)
             
@@ -570,9 +598,11 @@ if "Crime Analysis" in menu:
         
         with col_stat2:
             st.markdown("""
-            <div style='background: rgba(30,60,114,0.6); padding: 25px; border-radius: 12px; 
-                        border-left: 5px solid #ffd700; box-shadow: 0 8px 20px rgba(0,0,0,0.4);'>
-                <h4 style='color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>🎯 Key Insights</h4>
+            <div style='background: rgba(26,26,60,0.7); padding: 30px; border-radius: 15px; 
+                        border-left: 6px solid #ff6600; box-shadow: 0 10px 25px rgba(0,0,0,0.5);'>
+                <h4 style='color: #ff4444; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); letter-spacing: 1px;'>
+                    🎯 KEY INSIGHTS
+                </h4>
             </div>
             """, unsafe_allow_html=True)
             
@@ -602,7 +632,7 @@ if "Crime Analysis" in menu:
         st.dataframe(
             df.style.background_gradient(cmap='Reds', subset=df.columns[1:]),
             use_container_width=True,
-            height=400
+            height=450
         )
         
         # Download button
@@ -621,11 +651,13 @@ if "AI Crime Prediction" in menu:
     
     # Header Section
     st.markdown("""
-    <div style='background: linear-gradient(135deg, rgba(30,136,229,0.3), rgba(21,101,192,0.3)); 
-                border-left: 6px solid #1e88e5; padding: 25px; border-radius: 15px; margin-bottom: 30px;
-                box-shadow: 0 8px 20px rgba(30,136,229,0.3); border: 2px solid rgba(30,136,229,0.5);'>
-        <h2 style='color: #ffd700; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>🤖 AI-POWERED CRIME PREDICTION ENGINE</h2>
-        <p style='color: #ffffff; margin-top: 15px; font-size: 1.2rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
+    <div style='background: linear-gradient(135deg, rgba(0,61,130,0.4), rgba(0,31,66,0.4)); 
+                border-left: 8px solid #0066cc; padding: 30px; border-radius: 15px; margin-bottom: 35px;
+                box-shadow: 0 10px 25px rgba(0,61,130,0.4); border: 3px solid rgba(0,102,204,0.6);'>
+        <h2 style='color: #ff4444; margin: 0; text-shadow: 3px 3px 8px rgba(0,0,0,0.9); letter-spacing: 2px;'>
+            🤖 AI-POWERED CRIME PREDICTION ENGINE
+        </h2>
+        <p style='color: #ffffff; margin-top: 20px; font-size: 1.3rem; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.9);'>
             Advanced Machine Learning for Future Crime Rate Forecasting
         </p>
     </div>
@@ -637,16 +669,17 @@ if "AI Crime Prediction" in menu:
         crime_type = st.selectbox(
             "🎯 Select Crime Category for Prediction",
             df.columns[1:],
-            help="Choose the crime type you want to predict"
+            help="Choose the crime type you want to predict",
+            key="prediction_select"
         )
     
     with col_pred2:
         st.markdown("""
-        <div style='background: rgba(30,136,229,0.3); padding: 18px; border-radius: 12px; 
-                    border: 3px solid #1e88e5; margin-top: 25px; box-shadow: 0 5px 15px rgba(30,136,229,0.4);'>
-            <p style='margin: 0; text-align: center; font-weight: 800; font-size: 1.1rem; color: #ffffff;
-                      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
-                🧠 Random Forest ML Model
+        <div style='background: rgba(0,61,130,0.4); padding: 20px; border-radius: 15px; 
+                    border: 4px solid #0066cc; margin-top: 25px; box-shadow: 0 8px 20px rgba(0,61,130,0.5);'>
+            <p style='margin: 0; text-align: center; font-weight: 900; font-size: 1.2rem; color: #ffffff;
+                      text-shadow: 2px 2px 6px rgba(0,0,0,0.9); letter-spacing: 1px;'>
+                🧠 RANDOM FOREST ML
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -742,19 +775,20 @@ if "AI Crime Prediction" in menu:
             predicted_value = int(prediction[0])
             
             # Confidence interval (simplified)
-            confidence = predicted_value * 0.1  # ±10% confidence
+            confidence = predicted_value * 0.1
             lower_bound = int(predicted_value - confidence)
             upper_bound = int(predicted_value + confidence)
         
-        # Professional success message instead of balloons
-        st.success("✅ Prediction completed successfully!")
+        # Professional success message
+        st.success("✅ PREDICTION ANALYSIS COMPLETE")
         
         # RESULTS DISPLAY
         st.markdown("""
-        <div class='prediction-complete' style='background: linear-gradient(135deg, rgba(76,175,80,0.3), rgba(56,142,60,0.3)); 
-                    border: 3px solid #4caf50; padding: 30px; border-radius: 20px; margin: 30px 0;
-                    box-shadow: 0 12px 35px rgba(76,175,80,0.4);'>
-            <h2 style='text-align: center; color: #4caf50; margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>
+        <div class='prediction-complete' style='background: linear-gradient(135deg, rgba(0,100,0,0.4), rgba(0,50,0,0.4)); 
+                    border: 4px solid #00ff00; padding: 35px; border-radius: 20px; margin: 35px 0;
+                    box-shadow: 0 15px 40px rgba(0,255,0,0.3);'>
+            <h2 style='text-align: center; color: #00ff00; margin-bottom: 20px; text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+                       letter-spacing: 2px; text-transform: uppercase;'>
                 🎯 PREDICTION RESULTS
             </h2>
         </div>
@@ -765,20 +799,24 @@ if "AI Crime Prediction" in menu:
         
         with col_res2:
             st.markdown(f"""
-            <div style='background: linear-gradient(135deg, #dc143c, #8b0000); 
-                        padding: 45px; border-radius: 20px; text-align: center;
-                        box-shadow: 0 18px 45px rgba(220,20,60,0.6); border: 4px solid #ffd700;'>
-                <h3 style='color: #ffd700; margin: 0; font-size: 1.3rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>
-                    Predicted {crime_type} Cases
+            <div style='background: linear-gradient(135deg, #8b0000, #5a0000); 
+                        padding: 50px; border-radius: 20px; text-align: center;
+                        box-shadow: 0 20px 50px rgba(139,0,0,0.7); border: 5px solid #ff0000;'>
+                <h3 style='color: #ffffff; margin: 0; font-size: 1.4rem; text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+                           letter-spacing: 2px; text-transform: uppercase;'>
+                    PREDICTED {crime_type.upper()} CASES
                 </h3>
-                <h1 style='color: white; margin: 25px 0; font-size: 4.5rem; font-weight: 900; text-shadow: 3px 3px 8px rgba(0,0,0,0.8);'>
+                <h1 style='color: #ff0000; margin: 30px 0; font-size: 5rem; font-weight: 900; 
+                           text-shadow: 5px 5px 10px rgba(0,0,0,0.9);'>
                     {predicted_value:,}
                 </h1>
-                <p style='color: #ffffff; margin: 0; font-size: 1.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
-                    Year: {future_year}
+                <p style='color: #ffffff; margin: 0; font-size: 1.3rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+                          font-weight: 700;'>
+                    TARGET YEAR: {future_year}
                 </p>
-                <p style='color: #ffd700; margin-top: 20px; font-size: 1.1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
-                    Confidence Range: {lower_bound:,} - {upper_bound:,} cases
+                <p style='color: #ffcc00; margin-top: 25px; font-size: 1.2rem; font-weight: 800; 
+                          text-shadow: 2px 2px 6px rgba(0,0,0,0.9);'>
+                    CONFIDENCE RANGE: {lower_bound:,} - {upper_bound:,} CASES
                 </p>
             </div>
             """, unsafe_allow_html=True)
@@ -800,8 +838,8 @@ if "AI Crime Prediction" in menu:
                 y=df[crime_type],
                 mode='lines+markers',
                 name='Historical Data',
-                line=dict(color='#1e88e5', width=4),
-                marker=dict(size=12, color='#1565c0')
+                line=dict(color='#0099ff', width=5),
+                marker=dict(size=14, color='#0066cc')
             ))
             
             # Prediction point
@@ -811,10 +849,10 @@ if "AI Crime Prediction" in menu:
                 mode='markers',
                 name='Prediction',
                 marker=dict(
-                    size=28,
-                    color='#dc143c',
+                    size=32,
+                    color='#ff0000',
                     symbol='star',
-                    line=dict(color='#ffd700', width=3)
+                    line=dict(color='#ffff00', width=4)
                 )
             ))
             
@@ -824,7 +862,7 @@ if "AI Crime Prediction" in menu:
                 y=[df[crime_type].iloc[-1], predicted_value],
                 mode='lines',
                 name='Forecast Trend',
-                line=dict(color='#dc143c', width=4, dash='dash')
+                line=dict(color='#ff0000', width=5, dash='dash')
             ))
             
             # Confidence interval
@@ -833,9 +871,9 @@ if "AI Crime Prediction" in menu:
                 y=[lower_bound, upper_bound],
                 mode='lines',
                 name='Confidence Range',
-                line=dict(color='#ffd700', width=0),
+                line=dict(color='#ffcc00', width=0),
                 fill='toself',
-                fillcolor='rgba(255, 215, 0, 0.2)'
+                fillcolor='rgba(255, 204, 0, 0.25)'
             ))
             
             fig_pred.update_layout(
@@ -843,14 +881,14 @@ if "AI Crime Prediction" in menu:
                 xaxis_title="Year",
                 yaxis_title="Number of Cases",
                 hovermode='x unified',
-                plot_bgcolor='rgba(26, 26, 46, 0.5)',
+                plot_bgcolor='rgba(10, 10, 30, 0.6)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(color='#ffffff', size=14),
-                title_font=dict(size=22, color='#ffd700', family='Arial Black'),
-                xaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-                yaxis=dict(gridcolor='rgba(255,255,255,0.15)', color='#ffffff'),
-                legend=dict(bgcolor='rgba(26, 26, 46, 0.8)', font=dict(color='#ffffff')),
-                height=550
+                font=dict(color='#ffffff', size=15, family='Arial Black'),
+                title_font=dict(size=24, color='#ff4444', family='Arial Black'),
+                xaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+                yaxis=dict(gridcolor='rgba(139, 0, 0, 0.3)', color='#ffffff'),
+                legend=dict(bgcolor='rgba(10, 10, 30, 0.9)', font=dict(color='#ffffff', size=13)),
+                height=600
             )
             
             st.plotly_chart(fig_pred, use_container_width=True)
@@ -867,9 +905,11 @@ if "AI Crime Prediction" in menu:
                 percent_diff = (diff_from_avg / hist_avg) * 100
                 
                 st.markdown("""
-                <div style='background: rgba(30,60,114,0.6); padding: 25px; border-radius: 12px; 
-                            border-left: 5px solid #1e88e5; box-shadow: 0 8px 20px rgba(0,0,0,0.4);'>
-                    <h4 style='color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>📊 Comparison Metrics</h4>
+                <div style='background: rgba(26,26,60,0.7); padding: 30px; border-radius: 15px; 
+                            border-left: 6px solid #0066cc; box-shadow: 0 10px 25px rgba(0,0,0,0.5);'>
+                    <h4 style='color: #ff4444; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); letter-spacing: 1px;'>
+                        📊 COMPARISON METRICS
+                    </h4>
                 </div>
                 """, unsafe_allow_html=True)
                 
@@ -894,57 +934,61 @@ if "AI Crime Prediction" in menu:
             with col_comp2:
                 # Risk Assessment
                 st.markdown("""
-                <div style='background: rgba(30,60,114,0.6); padding: 25px; border-radius: 12px; 
-                            border-left: 5px solid #dc143c; box-shadow: 0 8px 20px rgba(0,0,0,0.4);'>
-                    <h4 style='color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>🚨 Risk Assessment</h4>
+                <div style='background: rgba(26,26,60,0.7); padding: 30px; border-radius: 15px; 
+                            border-left: 6px solid #ff0000; box-shadow: 0 10px 25px rgba(0,0,0,0.5);'>
+                    <h4 style='color: #ff4444; text-shadow: 2px 2px 6px rgba(0,0,0,0.9); letter-spacing: 1px;'>
+                        🚨 RISK ASSESSMENT
+                    </h4>
                 </div>
                 """, unsafe_allow_html=True)
                 
                 if percent_diff > 20:
                     risk_level = "🔴 HIGH RISK"
                     risk_desc = "Significant increase predicted. Immediate action recommended."
-                    risk_color = "#dc143c"
+                    risk_color = "#ff0000"
                 elif percent_diff > 5:
                     risk_level = "🟡 MODERATE RISK"
                     risk_desc = "Notable increase expected. Enhanced monitoring advised."
-                    risk_color = "#ffd700"
+                    risk_color = "#ffcc00"
                 else:
                     risk_level = "🟢 LOW RISK"
                     risk_desc = "Stable or decreasing trend. Continue current strategies."
-                    risk_color = "#4caf50"
+                    risk_color = "#00ff00"
                 
                 st.markdown(f"""
-                <div style='background: rgba(26,26,46,0.6); padding: 25px; border-radius: 12px; 
-                            border: 3px solid {risk_color}; box-shadow: 0 8px 20px rgba(0,0,0,0.4);'>
-                    <h3 style='color: {risk_color}; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>
+                <div style='background: rgba(10,10,30,0.8); padding: 30px; border-radius: 15px; 
+                            border: 4px solid {risk_color}; box-shadow: 0 10px 25px rgba(0,0,0,0.5);'>
+                    <h3 style='color: {risk_color}; text-align: center; margin-bottom: 25px; text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+                               font-size: 1.5rem; letter-spacing: 2px;'>
                         {risk_level}
                     </h3>
-                    <p style='color: #ffffff; text-align: center; margin: 0; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
+                    <p style='color: #ffffff; text-align: center; margin: 0; font-size: 1.2rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+                              font-weight: 700;'>
                         {risk_desc}
                     </p>
                 </div>
                 """, unsafe_allow_html=True)
                 
                 # Recommendations
-                st.markdown("##### 💡 Recommendations:")
+                st.markdown("##### 💡 RECOMMENDATIONS:")
                 if percent_diff > 20:
                     st.markdown("""
-                    - 🚨 Increase patrol frequency
-                    - 📊 Allocate additional resources
-                    - 🎯 Implement preventive programs
-                    - 📱 Enhance community awareness
+                    - 🚨 **Increase patrol frequency**
+                    - 📊 **Allocate additional resources**
+                    - 🎯 **Implement preventive programs**
+                    - 📱 **Enhance community awareness**
                     """)
                 elif percent_diff > 5:
                     st.markdown("""
-                    - 👁️ Monitor hotspot areas
-                    - 📈 Review current strategies
-                    - 🤝 Strengthen community engagement
+                    - 👁️ **Monitor hotspot areas**
+                    - 📈 **Review current strategies**
+                    - 🤝 **Strengthen community engagement**
                     """)
                 else:
                     st.markdown("""
-                    - ✅ Maintain current approach
-                    - 📊 Continue data monitoring
-                    - 🎯 Optimize resource allocation
+                    - ✅ **Maintain current approach**
+                    - 📊 **Continue data monitoring**
+                    - 🎯 **Optimize resource allocation**
                     """)
         
         with viz_tab3:
@@ -961,23 +1005,23 @@ if "AI Crime Prediction" in menu:
                     go.Bar(
                         x=["Year"],
                         y=importance,
-                        marker=dict(color='#dc143c'),
+                        marker=dict(color='#ff0000'),
                         text=[f"{imp:.2%}" for imp in importance],
                         textposition='outside',
-                        textfont=dict(color='#ffffff', size=14)
+                        textfont=dict(color='#ffffff', size=16, family='Arial Black')
                     )
                 ])
                 
                 fig_imp.update_layout(
                     title="Model Feature Importance",
                     yaxis_title="Importance Score",
-                    plot_bgcolor='rgba(26, 26, 46, 0.5)',
+                    plot_bgcolor='rgba(10, 10, 30, 0.6)',
                     paper_bgcolor='rgba(0,0,0,0)',
-                    font=dict(color='#ffffff'),
-                    title_font=dict(color='#ffd700'),
+                    font=dict(color='#ffffff', family='Arial Black'),
+                    title_font=dict(color='#ff4444'),
                     xaxis=dict(color='#ffffff'),
                     yaxis=dict(color='#ffffff'),
-                    height=350
+                    height=400
                 )
                 
                 st.plotly_chart(fig_imp, use_container_width=True)
@@ -1037,7 +1081,7 @@ if "AI Crime Prediction" in menu:
             
             csv = report.to_csv(index=False).encode("utf-8")
             st.download_button(
-                "📄 Download Detailed Report (CSV)",
+                "📄 Download Detailed Report",
                 data=csv,
                 file_name=f"crime_prediction_{crime_type}_{future_year}.csv",
                 mime="text/csv",
@@ -1069,10 +1113,10 @@ Level: {risk_level}
 Change from Avg: {percent_diff:+.2f}%
 
 Generated by Crime Intelligence Pro
-Professional Crime Analysis Platform"""
+Professional Law Enforcement Platform"""
             
             st.download_button(
-                "📋 Download Summary (TXT)",
+                "📋 Download Summary",
                 data=summary,
                 file_name=f"prediction_summary_{future_year}.txt",
                 mime="text/plain",
@@ -1091,37 +1135,45 @@ Professional Crime Analysis Platform"""
             
             forecast_csv = forecast_df.to_csv(index=False).encode("utf-8")
             st.download_button(
-                "📊 Download Forecast Data (CSV)",
+                "📊 Download Forecast Data",
                 data=forecast_csv,
                 file_name=f"forecast_data_{crime_type}.csv",
                 mime="text/csv",
                 use_container_width=True
             )
 
-# ---------------- PROFESSIONAL FOOTER ----------------
+# ---------------- PROFESSIONAL LAW ENFORCEMENT FOOTER ----------------
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; padding: 35px; background: linear-gradient(135deg, rgba(220,20,60,0.3), rgba(139,0,0,0.3)); 
-            border-radius: 20px; margin-top: 50px; border: 2px solid #dc143c; box-shadow: 0 10px 30px rgba(220,20,60,0.4);'>
-    <h3 style='color: #ffd700; margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);'>🚨 CRIME INTELLIGENCE PRO 🚨</h3>
-    <p style='color: #ffffff; font-size: 1.2rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);'>
+<div style='text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(80,0,0,0.4)); 
+            border-radius: 20px; margin-top: 60px; border: 4px solid #8b0000; box-shadow: 0 15px 35px rgba(139,0,0,0.5);'>
+    <h3 style='color: #ff0000; margin-bottom: 25px; text-shadow: 3px 3px 8px rgba(0,0,0,0.9); 
+               font-size: 2rem; letter-spacing: 3px; text-transform: uppercase;'>
+        🚨 CRIME INTELLIGENCE PRO 🚨
+    </h3>
+    <p style='color: #ffffff; font-size: 1.3rem; margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+              font-weight: 800; letter-spacing: 1px;'>
         Professional AI-Powered Crime Analytics & Prediction Platform
     </p>
-    <p style='color: #ffffff; font-size: 1rem; opacity: 0.9; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);'>
-        Advanced Machine Learning | Data Science | Strategic Intelligence
+    <p style='color: #ffffff; font-size: 1.1rem; opacity: 0.95; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+              font-weight: 700;'>
+        Advanced Machine Learning | Strategic Intelligence | Data Science
     </p>
-    <div style='margin-top: 25px;'>
-        <span style='background: #dc143c; padding: 10px 25px; border-radius: 25px; 
-                     color: white; font-weight: 800; margin: 0 8px; box-shadow: 0 5px 15px rgba(220,20,60,0.4);'>
-            🚀 Innovation
+    <div style='margin-top: 30px;'>
+        <span style='background: linear-gradient(135deg, #8b0000, #5a0000); padding: 12px 30px; border-radius: 30px; 
+                     color: white; font-weight: 900; margin: 0 10px; box-shadow: 0 8px 20px rgba(139,0,0,0.5);
+                     border: 2px solid #ff0000;'>
+            🚀 INNOVATION
         </span>
-        <span style='background: #1e88e5; padding: 10px 25px; border-radius: 25px; 
-                     color: white; font-weight: 800; margin: 0 8px; box-shadow: 0 5px 15px rgba(30,136,229,0.4);'>
+        <span style='background: linear-gradient(135deg, #003d82, #001f42); padding: 12px 30px; border-radius: 30px; 
+                     color: white; font-weight: 900; margin: 0 10px; box-shadow: 0 8px 20px rgba(0,61,130,0.5);
+                     border: 2px solid #0066cc;'>
             🧠 AI/ML
         </span>
-        <span style='background: #4caf50; padding: 10px 25px; border-radius: 25px; 
-                     color: white; font-weight: 800; margin: 0 8px; box-shadow: 0 5px 15px rgba(76,175,80,0.4);'>
-            📊 Analytics
+        <span style='background: linear-gradient(135deg, #005a00, #003300); padding: 12px 30px; border-radius: 30px; 
+                     color: white; font-weight: 900; margin: 0 10px; box-shadow: 0 8px 20px rgba(0,90,0,0.5);
+                     border: 2px solid #00ff00;'>
+            📊 ANALYTICS
         </span>
     </div>
 </div>
