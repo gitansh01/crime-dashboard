@@ -40,6 +40,10 @@ label, .stMarkdown, .stText, p, span, div {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
 }
 
+/* =============================================
+   FIX 1: DROPDOWN - WHITE TEXT FULLY VISIBLE
+   ============================================= */
+
 /* Dropdown Label */
 .stSelectbox label {
     color: #ffffff !important;
@@ -55,7 +59,27 @@ label, .stMarkdown, .stText, p, span, div {
     border: 4px solid #dc143c !important;
     font-weight: 900 !important;
     font-size: 1.3rem !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow: none !important;
+    min-height: 52px !important;
+}
+
+/* Force selected value text white — catches all Streamlit/BaseWeb internal spans */
+.stSelectbox div[data-baseweb="select"] span,
+.stSelectbox div[data-baseweb="select"] div[class*="singleValue"],
+.stSelectbox [class*="ValueContainer"] *,
+.stSelectbox [class*="singleValue"],
+.stSelectbox [class*="placeholder"],
+.stSelectbox input {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    font-size: 1.2rem !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Dropdown arrow */
+.stSelectbox svg {
+    fill: #dc143c !important;
 }
 
 /* Dropdown Menu */
@@ -65,18 +89,23 @@ label, .stMarkdown, .stText, p, span, div {
 }
 
 /* Dropdown Options */
-.stSelectbox li {
+.stSelectbox li,
+[data-baseweb="menu"] li,
+[role="option"] {
     background-color: #1a0a0a !important;
     color: #ffffff !important;
     font-weight: 900 !important;
     font-size: 1.3rem !important;
     padding: 20px 28px !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow: none !important;
+    -webkit-text-fill-color: #ffffff !important;
     border-bottom: 2px solid #333333 !important;
 }
 
-.stSelectbox li:hover {
+.stSelectbox li:hover,
+[role="option"]:hover {
     background: linear-gradient(135deg, #dc143c, #ff0000) !important;
+    color: #ffffff !important;
 }
 
 /* Headers */
@@ -202,14 +231,18 @@ button[title="View fullscreen"]:hover {
     font-weight: 900 !important;
 }
 
-/* Dataframe Container - Extra Space for Buttons */
+/* =============================================
+   FIX 2: DATAFRAME — remove top padding so
+   toolbar doesn't overlap, button sits below
+   ============================================= */
 [data-testid="stDataFrame"] {
     background: rgba(10, 10, 30, 0.9);
     border-radius: 15px;
     border: 3px solid #dc143c;
     box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-    padding-top: 60px !important;
+    padding-top: 8px !important;
     position: relative;
+    margin-bottom: 0 !important;
 }
 
 /* Dataframe Headers */
@@ -222,10 +255,13 @@ button[title="View fullscreen"]:hover {
     padding: 15px !important;
 }
 
-/* Dataframe Cells */
-[data-testid="stDataFrame"] td {
-    color: #000000 !important;
+/* Dataframe Cells - white text so visible on gradient */
+[data-testid="stDataFrame"] td,
+[data-testid="stDataFrame"] [role="gridcell"] {
+    color: #ffffff !important;
     font-weight: 700 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8) !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 /* Expander Headers */
@@ -459,9 +495,23 @@ if "Crime Analysis" in menu:
     
     with tab4:
         st.markdown("<h3>🗂️ Complete Dataset</h3>", unsafe_allow_html=True)
-        st.dataframe(df.style.background_gradient(cmap='Reds', subset=df.columns[1:]), use_container_width=True, height=420)
+
+        # FIX 2: Render table cleanly, then spacer, then button below — no overlap
+        st.dataframe(df.style.background_gradient(cmap='Reds', subset=df.columns[1:]).set_properties(**{
+            'color': 'white',
+            'font-weight': 'bold',
+        }), use_container_width=True, height=420)
+
+        # Explicit vertical spacer so button never overlaps the table
+        st.markdown("<div style='height: 24px;'></div>", unsafe_allow_html=True)
+
         csv = df.to_csv(index=False).encode('utf-8')
-        st.download_button("📥 Download Complete Dataset", data=csv, file_name=f"crime_data_{datetime.now().strftime('%Y%m%d')}.csv", mime="text/csv")
+        st.download_button(
+            "📥 Download Complete Dataset",
+            data=csv,
+            file_name=f"crime_data_{datetime.now().strftime('%Y%m%d')}.csv",
+            mime="text/csv"
+        )
 
 # ========== AI PREDICTION MODULE ==========
 if "AI Crime Prediction" in menu:
@@ -514,7 +564,8 @@ if "AI Crime Prediction" in menu:
         upper_bound = int(predicted_value * 1.1)
         
         st.success("✅ PREDICTION ANALYSIS COMPLETE")
-        
+
+        # FIX 3: Prediction box rendered first, then explicit spacer, then button cleanly below
         st.markdown(f"""
         <div style='background: linear-gradient(135deg, #dc143c, #8b0000); padding: 40px; border-radius: 20px; 
                     text-align: center; border: 4px solid #ff0000; box-shadow: 0 15px 40px rgba(220,20,60,0.8);'>
@@ -524,6 +575,9 @@ if "AI Crime Prediction" in menu:
             <p style='color: #ffff00; font-size: 1.1rem; font-weight: 800;'>CONFIDENCE RANGE: {lower_bound:,} - {upper_bound:,} CASES</p>
         </div>
         """, unsafe_allow_html=True)
+
+        # Spacer so download buttons never overlap the red box
+        st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
         
         st.markdown("---")
         
