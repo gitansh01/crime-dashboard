@@ -411,7 +411,7 @@ if "Crime Analysis" in menu:
             yaxis=dict(title="<b>Cases</b>", gridcolor='rgba(220, 20, 60, 0.3)', color='#ffffff', title_font=dict(size=16)),
             height=520,
             hoverlabel=dict(bgcolor='#000000', font_size=18, font_family='Arial Black', font_color='#ffffff', bordercolor='#dc143c')
-        ))
+        )
         st.plotly_chart(fig, use_container_width=True)
     
     with tab2:
