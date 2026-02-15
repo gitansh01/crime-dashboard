@@ -429,7 +429,7 @@ if "Crime Analysis" in menu:
             font=dict(color='#ffffff', size=16, family='Arial Black'),
             legend=dict(bgcolor='rgba(0, 0, 0, 0.95)', font=dict(color='#ffffff', size=14), bordercolor='#dc143c', borderwidth=2),
             height=520
-        ))
+        )
         st.plotly_chart(fig2, use_container_width=True)
     
     with tab3:
