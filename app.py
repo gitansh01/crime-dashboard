@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 import joblib
 import warnings
-from sklearn.ensemble import RandomForestRegressor
 warnings.filterwarnings("ignore")
 
 st.set_page_config(
@@ -184,11 +183,11 @@ def load_models():
 
 @st.cache_resource
 def load_crime_models():
-    """Load pre-trained per-crime-state models from disk (state_crime_models/ folder).
-    Falls back to on-the-fly training if folder not found (first-time setup)."""
+    """Load pre-trained Random Forest models from state_crime_forecasting_models/ folder.
+    Falls back to fast polynomial models if folder not found."""
     import os, glob
     models = {}
-    model_dir = "state_crime_models"
+    model_dir = "state_crime_forecasting_models"
 
     if os.path.isdir(model_dir):
         pkl_files = glob.glob(f"{model_dir}/*.pkl")
@@ -201,34 +200,33 @@ def load_crime_models():
             state = raw_state.replace("_AND_", " & ").replace("_", " ")
             crime = raw_crime.replace("_AND_", " & ").replace("_", " ")
             models[(state, crime)] = joblib.load(fpath)
-        return models, len(pkl_files)
+        if models:
+            return models, len(models)
 
-    # Fallback: train on-the-fly (only if folder missing)
-    return None, 0
+    # Fallback: fast polynomial trend models (instant, no training delay)
+    from sklearn.linear_model import LinearRegression
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.pipeline import Pipeline
+    fallback = {}
+    for state in _df_state["STATE/UT"].unique():
+        sdf = _df_state[_df_state["STATE/UT"] == state].sort_values("YEAR")
+        for crime in PLOT_CRIMES + ["TOTAL IPC CRIMES"]:
+            if len(sdf) < 3:
+                continue
+            X = sdf[["YEAR"]].values
+            y = sdf[crime].values
+            pipe = Pipeline([
+                ("poly", PolynomialFeatures(degree=2, include_bias=False)),
+                ("reg",  LinearRegression())
+            ])
+            pipe.fit(X, y)
+            fallback[(state, crime)] = pipe
+    return fallback, 0
 
 df_state, df_trend, df_pred = load_data()
 crime_model, label_enc, risk_model = load_models()
-
-_loaded_models, _n_loaded = load_crime_models()
-
-if _loaded_models:
-    crime_models = _loaded_models
-else:
-    # Fallback training — runs once then cached
-    with st.spinner("🧠 Training prediction models for first run (one-time only)…"):
-        @st.cache_resource
-        def build_crime_models(_df_total):
-            models = {}
-            for state in _df_total["STATE/UT"].unique():
-                sdf = _df_total[_df_total["STATE/UT"]==state].sort_values("YEAR")
-                for crime in PLOT_CRIMES + ["TOTAL IPC CRIMES"]:
-                    X = sdf[["YEAR"]]; y = sdf[crime]
-                    if len(X) < 3: continue
-                    m = RandomForestRegressor(n_estimators=200, random_state=42)
-                    m.fit(X, y)
-                    models[(state, crime)] = m
-            return models
-        crime_models = build_crime_models(df_state)
+_df_state = df_state  # needed by fallback inside load_crime_models
+crime_models, _n_loaded = load_crime_models()
 
 STATE_LIST = sorted(df_state["STATE/UT"].unique().tolist())
 YEARS      = sorted(df_state["YEAR"].unique().tolist())
@@ -252,8 +250,7 @@ with st.sidebar:
     st.metric("States / UTs",     df_state["STATE/UT"].nunique())
     st.metric("Years Covered",    f"{YEARS[0]}–{YEARS[-1]}")
     st.metric("Crime Categories", len(PLOT_CRIMES))
-    _mc = _n_loaded if _n_loaded > 0 else len(crime_models)
-    st.metric("Forecast Models",  f"{_mc:,}")
+    st.metric("Forecast Models",  f"{_n_loaded:,}")
     st.metric("Status",           "🟢 ONLINE")
     st.markdown("---")
     st.markdown("<p style='text-align:center;font-size:0.8rem;color:#aaa;'>Crime Intelligence Pro v3.0<br>Advanced Analytics Edition</p>", unsafe_allow_html=True)
