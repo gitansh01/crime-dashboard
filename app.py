@@ -567,7 +567,7 @@ if "AI Crime Prediction" in menu:
                 legend=dict(bgcolor='rgba(0, 0, 0, 0.95)', font=dict(color='#ffffff', size=14), bordercolor='#dc143c', borderwidth=3),
                 height=560,
                 hoverlabel=dict(bgcolor='#000000', font_size=18, font_family='Arial Black', font_color='#ffffff')
-            ))
+            )
             st.plotly_chart(fig_pred, use_container_width=True)
         
         with viz_tab2:
@@ -614,7 +614,7 @@ if "AI Crime Prediction" in menu:
                     font=dict(color='#ffffff', family='Arial Black'),
                     yaxis=dict(title='<b>Importance</b>', color='#ffffff'),
                     height=360
-                ))
+                )
                 st.plotly_chart(fig_imp, use_container_width=True)
             
             with col_insight2:
