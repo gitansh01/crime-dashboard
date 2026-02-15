@@ -230,6 +230,7 @@ button[title="View fullscreen"]:hover {
     border: 3px solid #dc143c;
     box-shadow: 0 12px 30px rgba(0,0,0,0.7);
     padding: 8px !important;
+    margin-bottom: 0 !important;
     overflow: hidden;
 }
 
@@ -373,6 +374,12 @@ hr {
     border: 2px solid #dc143c;
     margin: 25px 0;
     box-shadow: 0 2px 12px rgba(220, 20, 60, 0.6);
+}
+
+/* Download button below dataset table */
+[data-testid="stDataFrame"] + div .stDownloadButton {
+    margin-top: 28px !important;
+    display: block;
 }
 
 /* =============================================
@@ -589,19 +596,17 @@ if "Crime Analysis" in menu:
 
         st.dataframe(styled_df, use_container_width=True, height=400)
 
-        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 32px;'></div>", unsafe_allow_html=True)
 
-        # Download button neatly placed below table, not overlapping
-        col_dl_left, col_dl_mid, col_dl_right = st.columns([1, 2, 1])
-        with col_dl_mid:
-            csv = df.to_csv(index=False).encode('utf-8')
-            st.download_button(
-                "📥 Download Complete Dataset",
-                data=csv,
-                file_name=f"crime_data_{datetime.now().strftime('%Y%m%d')}.csv",
-                mime="text/csv",
-                use_container_width=True
-            )
+        # Download button sitting cleanly below the table
+        csv = df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            "📥 Download Complete Dataset",
+            data=csv,
+            file_name=f"crime_data_{datetime.now().strftime('%Y%m%d')}.csv",
+            mime="text/csv",
+            use_container_width=False
+        )
 
 
 # ========== AI PREDICTION MODULE ==========
