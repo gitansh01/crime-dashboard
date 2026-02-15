@@ -621,8 +621,10 @@ elif "State-wise Analysis" in menu:
         st.plotly_chart(fig_yoy, use_container_width=True)
 
     with tab_s4:
-        compare_states = st.multiselect("🆚 Add States to Compare", [s for s in STATE_LIST if s != sel_state],
-                                        default=STATE_LIST[:3], max_selections=5, key="cmp_states")
+        available_states = [s for s in STATE_LIST if s != sel_state]
+        default_compare  = available_states[:3]
+        compare_states = st.multiselect("🆚 Add States to Compare", available_states,
+                                        default=default_compare, max_selections=5, key="cmp_states")
         states_to_plot = [sel_state] + compare_states
         fig_cmp = go.Figure()
         cmp_colors = ['#ff0000','#00ccff','#ffcc00','#00ff88','#cc00ff','#ff6600']
