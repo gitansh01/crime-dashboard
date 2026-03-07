@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# CSS
+# FIXED CSS - YEAR COLUMN NOW VISIBLE WITH DARK BACKGROUND
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -73,44 +73,80 @@ h2 { font-size:1.8rem !important; } h3 { font-size:1.5rem !important; } h4 { fon
 .stDownloadButton>button:hover { transform:translateY(-3px); background:linear-gradient(135deg,#0080ff,#0066cc) !important; }
 .stDownloadButton>button span { color:#ffffff !important; font-weight:900 !important; }
 
-/* FIX 2 & 3 & 4: Table buttons + header + cell text always white */
+/* FIXED: Table buttons fully visible */
 button[title="View fullscreen"],
-button[aria-label="View fullscreen"] {
-    background:rgba(220,20,60,0.85) !important; color:#ffffff !important;
-    border:2px solid #ffffff !important; border-radius:6px !important;
+button[aria-label="View fullscreen"],
+button[title*="fullscreen"],
+button[aria-label*="fullscreen"] {
+    background:rgba(220,20,60,0.95) !important; color:#ffffff !important;
+    border:3px solid #ffffff !important; border-radius:8px !important;
     font-weight:900 !important; opacity:1 !important; visibility:visible !important;
+    padding:8px 14px !important; font-size:0.9rem !important;
+    box-shadow: 0 4px 12px rgba(220,20,60,0.6) !important;
 }
 button[title="Download"],
-button[aria-label="Download"] {
-    background:rgba(0,80,180,0.85) !important; color:#ffffff !important;
-    border:2px solid #ffffff !important; border-radius:6px !important;
+button[aria-label="Download"],
+button[title*="download"],
+button[aria-label*="download"] {
+    background:rgba(0,80,180,0.95) !important; color:#ffffff !important;
+    border:3px solid #ffffff !important; border-radius:8px !important;
     font-weight:900 !important; opacity:1 !important; visibility:visible !important;
+    padding:8px 14px !important; font-size:0.9rem !important;
+    box-shadow: 0 4px 12px rgba(0,80,180,0.6) !important;
 }
+
+/* Table container */
 [data-testid="stDataFrame"] {
-    background:rgba(10,10,30,0.95); border-radius:12px; border:3px solid #dc143c;
-    box-shadow:0 12px 30px rgba(0,0,0,0.7); padding-top:8px !important;
+    background:rgba(5,5,20,0.98) !important; 
+    border-radius:12px; 
+    border:3px solid #dc143c;
+    box-shadow:0 12px 30px rgba(0,0,0,0.7); 
+    padding-top:8px !important;
 }
-/* FIX 3: Make year + number cells fully white in all dataframes */
-[data-testid="stDataFrame"] *,
+
+/* CRITICAL FIX: First column (YEAR/Index) - DARK background + WHITE text */
+[data-testid="stDataFrame"] [role="gridcell"]:first-child,
+[data-testid="stDataFrame"] th:first-child {
+    background:rgba(10,10,30,0.98) !important;
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    font-weight:900 !important;
+    font-size:0.95rem !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.95) !important;
+    border-right: 2px solid rgba(220,20,60,0.4) !important;
+}
+
+/* All table headers - dark background */
 [data-testid="stDataFrame"] th,
+[data-testid="stDataFrame"] [role="columnheader"] {
+    background:rgba(10,10,30,0.98) !important;
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    font-weight:900 !important;
+    font-size:0.95rem !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.95) !important;
+    padding:12px 8px !important;
+    border-bottom: 3px solid #dc143c !important;
+}
+
+/* All data cells - white text */
 [data-testid="stDataFrame"] td,
-[data-testid="stDataFrame"] [role="gridcell"],
-[data-testid="stDataFrame"] [role="columnheader"],
+[data-testid="stDataFrame"] [role="gridcell"] {
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    font-weight:800 !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.95) !important;
+    font-size:0.9rem !important;
+}
+
+/* Force all table text elements white */
+[data-testid="stDataFrame"] *,
 [data-testid="stDataFrame"] span,
 [data-testid="stDataFrame"] div {
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
-    font-weight:700 !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.95) !important;
 }
-/* FIX 4: State/UT column + Risk Level column always white */
-[data-testid="stDataFrame"] [role="gridcell"]:first-child,
-[data-testid="stDataFrame"] [role="gridcell"]:last-child {
-    color:#ffffff !important;
-    -webkit-text-fill-color:#ffffff !important;
-    font-weight:800 !important;
-    background:rgba(10,10,30,0.6) !important;
-}
+
 .stTabs [data-baseweb="tab-list"] { gap:10px; background:rgba(10,10,30,0.9); border-radius:15px; padding:12px; border:3px solid #dc143c; }
 .stTabs [data-baseweb="tab"] { background:linear-gradient(135deg,rgba(220,20,60,0.3),rgba(139,0,0,0.3)); border-radius:12px; color:#ffffff !important; font-weight:900 !important; font-size:1rem !important; padding:14px 22px; border:2px solid transparent; }
 .stTabs [aria-selected="true"] { background:linear-gradient(135deg,#dc143c,#ff0000); color:white !important; border:2px solid #ffffff; box-shadow:0 8px 20px rgba(220,20,60,0.7); }
@@ -285,6 +321,7 @@ def dark_layout(title="", h=460, dtick_x=1):
         )
     )
 
+
 # ═══════════════════════════════════════════════════════
 # MODULE 1 — NATIONAL OVERVIEW
 # ═══════════════════════════════════════════════════════
@@ -386,6 +423,7 @@ if "National Overview" in menu:
                            '-webkit-text-fill-color':'white'})
     st.dataframe(styled_rank, use_container_width=True, height=420)
 
+
 # ═══════════════════════════════════════════════════════
 # MODULE 2 — INDIA MAP
 # ═══════════════════════════════════════════════════════
@@ -470,6 +508,7 @@ elif "India Crime Map" in menu:
                         font=dict(color='#ffffff',size=14,family='Arial Black'))
     )
     st.plotly_chart(fig_heat, use_container_width=True)
+
 
 # ═══════════════════════════════════════════════════════
 # MODULE 3 — STATE-WISE ANALYSIS
@@ -590,6 +629,7 @@ elif "State-wise" in menu:
             data=sdf[disp].to_csv(index=False).encode('utf-8'),
             file_name=f"{sel_state.replace(' ','_')}_crime.csv",mime="text/csv")
 
+
 # ═══════════════════════════════════════════════════════
 # MODULE 4 — NATIONAL TREND
 # ═══════════════════════════════════════════════════════
@@ -638,7 +678,6 @@ elif "National Trend" in menu:
                 "Value":[f"{series.mean():,.2f}",f"{series.median():,.2f}",f"{series.std():,.2f}",
                          f"{series.min():,}",f"{series.max():,}",
                          f"{series.max()-series.min():,}",f"{growth_rate:+.2f}%"]})
-            # FIX 2: white text on stat table
             styled_stats = stats.style.set_properties(**{'color':'white','font-weight':'bold',
                 '-webkit-text-fill-color':'white','background-color':'rgba(10,10,40,0.7)'})
             st.dataframe(styled_stats,use_container_width=True,hide_index=True)
@@ -660,7 +699,6 @@ elif "National Trend" in menu:
 
     with t4:
         disp_nat = nat[["YEAR"]+PLOT_CRIMES+["TOTAL IPC CRIMES"]]
-        # FIX 3: force white text on all cells including YEAR column
         styled_n = disp_nat.style\
             .background_gradient(cmap='Reds',subset=PLOT_CRIMES+["TOTAL IPC CRIMES"])\
             .set_properties(**{'color':'white','font-weight':'bold',
@@ -672,6 +710,7 @@ elif "National Trend" in menu:
         st.download_button("📥 Download National Trend Data",
             data=disp_nat.to_csv(index=False).encode('utf-8'),
             file_name="national_crime_trend.csv",mime="text/csv")
+
 
 # ═══════════════════════════════════════════════════════
 # MODULE 5 — AI PREDICTION ENGINE
@@ -863,7 +902,6 @@ elif "AI Prediction" in menu:
         disp_pred = df_p[["STATE_TITLE","Predicted Crimes","Predicted Risk Score","Risk Level"]].copy()
         disp_pred.columns = ["State/UT","Predicted Crimes","Risk Score","Risk Level"]
         disp_pred = disp_pred.reset_index(drop=True); disp_pred.index = disp_pred.index+1
-        # FIX 4: Force all columns white including State/UT and Risk Level
         styled_pred = disp_pred.style\
             .background_gradient(cmap='RdYlGn_r',subset=["Predicted Crimes","Risk Score"])\
             .set_properties(**{'color':'white','font-weight':'bold',
