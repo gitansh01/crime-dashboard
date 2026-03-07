@@ -14,152 +14,271 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ─────────────────────────────────────────────
-# FIXED CSS - YEAR COLUMN NOW VISIBLE WITH DARK BACKGROUND
-# ─────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════
+# MAXIMUM VISIBILITY CSS - ALL ELEMENTS OPTIMIZED
+# ═══════════════════════════════════════════════════════
 st.markdown("""
 <style>
+/* Main Background */
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg,#0a0a1e 0%,#1a1a3c 25%,#0f0f28 50%,#1e1e46 75%,#0a0a1e 100%);
     color:#FFFFFF;
 }
+
+/* Sidebar */
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg,#0a0a1e 0%,#1a1a3c 50%,#0f0f28 100%);
     border-right:4px solid #dc143c;
 }
-[data-testid="stSidebar"] * { color:#ffffff !important; }
-label,.stMarkdown,.stText,p,span,div { color:#ffffff !important; text-shadow:1px 1px 3px rgba(0,0,0,0.8); }
-.stSelectbox label { color:#ffffff !important; font-weight:900 !important; font-size:1.1rem !important; }
-.stSelectbox div[data-baseweb="select"] > div {
-    background-color:#1a0a0a !important; color:#ffffff !important;
-    border:4px solid #dc143c !important; font-weight:900 !important;
-    font-size:1.2rem !important; min-height:52px !important;
+[data-testid="stSidebar"] * { 
+    color:#ffffff !important; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
+
+/* All Text Elements - Maximum Visibility */
+label,.stMarkdown,.stText,p,span,div { 
+    color:#ffffff !important; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9); 
+}
+
+/* Selectbox Label */
+.stSelectbox label { 
+    color:#ffffff !important; 
+    font-weight:900 !important; 
+    font-size:1.1rem !important; 
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+}
+
+/* Selectbox - Dark Background, White Text */
+.stSelectbox div[data-baseweb="select"] > div {
+    background-color:#000000 !important; 
+    color:#ffffff !important;
+    border:4px solid #dc143c !important; 
+    font-weight:900 !important;
+    font-size:1.2rem !important; 
+    min-height:52px !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+}
+
 .stSelectbox div[data-baseweb="select"] span,
 .stSelectbox div[data-baseweb="select"] div[class*="singleValue"],
-.stSelectbox [class*="ValueContainer"] *,.stSelectbox [class*="singleValue"],
-.stSelectbox [class*="placeholder"],.stSelectbox input {
-    color:#ffffff !important; font-weight:900 !important; -webkit-text-fill-color:#ffffff !important;
-}
-.stSelectbox svg { fill:#dc143c !important; }
-[data-baseweb="popover"] { background-color:#1a0a0a !important; border:4px solid #dc143c !important; }
-.stSelectbox li,[data-baseweb="menu"] li,[role="option"] {
-    background-color:#1a0a0a !important; color:#ffffff !important;
-    font-weight:900 !important; font-size:1.1rem !important;
-    padding:16px 24px !important; border-bottom:2px solid #333 !important;
+.stSelectbox [class*="ValueContainer"] *,
+.stSelectbox [class*="singleValue"],
+.stSelectbox [class*="placeholder"],
+.stSelectbox input {
+    color:#ffffff !important; 
+    font-weight:900 !important; 
     -webkit-text-fill-color:#ffffff !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
 }
-.stSelectbox li:hover,[role="option"]:hover { background:linear-gradient(135deg,#dc143c,#ff0000) !important; }
-h1 { color:#ffffff !important; text-shadow:5px 5px 10px rgba(0,0,0,0.9); font-size:2.8rem !important; font-weight:900 !important; text-align:center; }
-h2,h3,h4 { color:#ffffff !important; font-weight:900 !important; text-shadow:3px 3px 8px rgba(0,0,0,0.9); }
-h2 { font-size:1.8rem !important; } h3 { font-size:1.5rem !important; } h4 { font-size:1.3rem !important; }
+
+.stSelectbox svg { fill:#dc143c !important; }
+
+/* Dropdown Menu - Black Background */
+[data-baseweb="popover"] { 
+    background-color:#000000 !important; 
+    border:4px solid #dc143c !important; 
+}
+
+/* Dropdown Options - Black with White Text */
+.stSelectbox li,
+[data-baseweb="menu"] li,
+[role="option"] {
+    background-color:#000000 !important; 
+    color:#ffffff !important;
+    font-weight:900 !important; 
+    font-size:1.1rem !important;
+    padding:16px 24px !important; 
+    border-bottom:2px solid #333 !important;
+    -webkit-text-fill-color:#ffffff !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+}
+
+.stSelectbox li:hover,
+[role="option"]:hover { 
+    background:linear-gradient(135deg,#dc143c,#ff0000) !important; 
+}
+
+/* Headers */
+h1 { 
+    color:#ffffff !important; 
+    text-shadow:5px 5px 10px rgba(0,0,0,0.9); 
+    font-size:2.8rem !important; 
+    font-weight:900 !important; 
+    text-align:center; 
+}
+
+h2,h3,h4 { 
+    color:#ffffff !important; 
+    font-weight:900 !important; 
+    text-shadow:3px 3px 8px rgba(0,0,0,0.9); 
+}
+
+h2 { font-size:1.8rem !important; } 
+h3 { font-size:1.5rem !important; } 
+h4 { font-size:1.3rem !important; }
+
+/* Metric Cards */
 [data-testid="metric-container"] {
     background:linear-gradient(135deg,rgba(220,20,60,0.4),rgba(139,0,0,0.3));
-    border:4px solid #dc143c; border-radius:15px; padding:25px; box-shadow:0 15px 40px rgba(220,20,60,0.6);
+    border:4px solid #dc143c; 
+    border-radius:15px; 
+    padding:25px; 
+    box-shadow:0 15px 40px rgba(220,20,60,0.6);
 }
-[data-testid="stMetricValue"] { font-size:2.5rem !important; font-weight:900 !important; color:#ff0000 !important; text-shadow:4px 4px 8px rgba(0,0,0,0.9); }
-[data-testid="stMetricLabel"] { color:#ffffff !important; font-weight:800 !important; }
-.stButton>button {
-    background:linear-gradient(135deg,#dc143c,#8b0000) !important; color:white !important;
-    font-weight:900 !important; font-size:1.1rem !important; border:4px solid #ff0000 !important;
-    border-radius:12px !important; padding:16px 40px !important; box-shadow:0 8px 20px rgba(220,20,60,0.6);
-}
-.stButton>button:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(220,20,60,0.8); }
-.stDownloadButton>button {
-    background:linear-gradient(135deg,#0066cc,#003d82) !important; color:#ffffff !important;
-    font-weight:900 !important; font-size:1.1rem !important; border:4px solid #ffffff !important;
-    border-radius:12px !important; padding:16px 36px !important; box-shadow:0 10px 25px rgba(0,102,204,0.7);
-}
-.stDownloadButton>button:hover { transform:translateY(-3px); background:linear-gradient(135deg,#0080ff,#0066cc) !important; }
-.stDownloadButton>button span { color:#ffffff !important; font-weight:900 !important; }
 
-/* FIXED: Table buttons fully visible */
+[data-testid="stMetricValue"] { 
+    font-size:2.5rem !important; 
+    font-weight:900 !important; 
+    color:#ff0000 !important; 
+    text-shadow:4px 4px 8px rgba(0,0,0,0.9); 
+}
+
+[data-testid="stMetricLabel"] { 
+    color:#ffffff !important; 
+    font-weight:800 !important; 
+    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+}
+
+/* Regular Buttons */
+.stButton>button {
+    background:linear-gradient(135deg,#dc143c,#8b0000) !important; 
+    color:white !important;
+    font-weight:900 !important; 
+    font-size:1.1rem !important; 
+    border:4px solid #ff0000 !important;
+    border-radius:12px !important; 
+    padding:16px 40px !important; 
+    box-shadow:0 8px 20px rgba(220,20,60,0.6);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+.stButton>button:hover { 
+    transform:translateY(-3px); 
+    box-shadow:0 12px 30px rgba(220,20,60,0.8); 
+}
+
+/* Download Buttons - HIGHLY VISIBLE */
+.stDownloadButton>button {
+    background:linear-gradient(135deg,#0066cc,#003d82) !important; 
+    color:#ffffff !important;
+    font-weight:900 !important; 
+    font-size:1.2rem !important; 
+    border:4px solid #ffffff !important;
+    border-radius:12px !important; 
+    padding:18px 40px !important; 
+    box-shadow:0 10px 25px rgba(0,102,204,0.7);
+    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+}
+
+.stDownloadButton>button:hover { 
+    transform:translateY(-3px); 
+    background:linear-gradient(135deg,#0080ff,#0066cc) !important; 
+}
+
+.stDownloadButton>button span { 
+    color:#ffffff !important; 
+    font-weight:900 !important; 
+    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+}
+
+/* ═══════════════════════════════════════════
+   TABLE BUTTONS - MAXIMUM VISIBILITY
+   ═══════════════════════════════════════════ */
 button[title="View fullscreen"],
 button[aria-label="View fullscreen"],
 button[title*="fullscreen"],
 button[aria-label*="fullscreen"] {
     background:#dc143c !important; 
     color:#ffffff !important;
-    border:3px solid #ffffff !important; 
-    border-radius:8px !important;
+    border:4px solid #ffffff !important; 
+    border-radius:10px !important;
     font-weight:900 !important; 
     opacity:1 !important; 
     visibility:visible !important;
-    padding:10px 16px !important; 
-    font-size:1rem !important;
-    box-shadow: 0 6px 16px rgba(220,20,60,0.8) !important;
+    padding:12px 18px !important; 
+    font-size:1.1rem !important;
+    box-shadow: 0 8px 20px rgba(220,20,60,0.9) !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
 }
+
 button[title="Download"],
 button[aria-label="Download"],
 button[title*="download"],
 button[aria-label*="download"] {
     background:#0066cc !important; 
     color:#ffffff !important;
-    border:3px solid #ffffff !important; 
-    border-radius:8px !important;
+    border:4px solid #ffffff !important; 
+    border-radius:10px !important;
     font-weight:900 !important; 
     opacity:1 !important; 
     visibility:visible !important;
-    padding:10px 16px !important; 
-    font-size:1rem !important;
-    box-shadow: 0 6px 16px rgba(0,102,204,0.8) !important;
+    padding:12px 18px !important; 
+    font-size:1.1rem !important;
+    box-shadow: 0 8px 20px rgba(0,102,204,0.9) !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
 }
 
-/* Table container - VERY DARK background */
+/* ═══════════════════════════════════════════
+   DATAFRAME / TABLE STYLING
+   ═══════════════════════════════════════════ */
+
+/* Table Container - Very Dark */
 [data-testid="stDataFrame"] {
-    background:rgba(0,0,0,0.95) !important; 
+    background:rgba(0,0,0,0.98) !important; 
     border-radius:12px; 
-    border:3px solid #dc143c;
-    box-shadow:0 12px 30px rgba(0,0,0,0.7); 
-    padding-top:8px !important;
+    border:4px solid #dc143c;
+    box-shadow:0 15px 40px rgba(0,0,0,0.8); 
+    padding-top:10px !important;
 }
 
-/* CRITICAL FIX: First column (YEAR/Index) - VERY DARK background + BRIGHT WHITE text */
+/* YEAR/Index Column - ALMOST BLACK with BRIGHT WHITE text */
 [data-testid="stDataFrame"] [role="gridcell"]:first-child {
-    background:rgba(0,0,10,0.99) !important;
+    background:rgba(0,0,5,1) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
-    font-size:1rem !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
-    border-right: 3px solid #dc143c !important;
-    padding: 12px !important;
+    font-size:1.05rem !important;
+    text-shadow: 3px 3px 10px rgba(0,0,0,1) !important;
+    border-right: 4px solid #dc143c !important;
+    padding: 14px !important;
 }
 
 [data-testid="stDataFrame"] th:first-child {
-    background:rgba(0,0,10,0.99) !important;
+    background:rgba(0,0,5,1) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
-    font-size:1rem !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
-    border-right: 3px solid #dc143c !important;
+    font-size:1.05rem !important;
+    text-shadow: 3px 3px 10px rgba(0,0,0,1) !important;
+    border-right: 4px solid #dc143c !important;
+    padding: 14px !important;
 }
 
-/* All table headers - dark background */
+/* All Table Headers */
 [data-testid="stDataFrame"] th,
 [data-testid="stDataFrame"] [role="columnheader"] {
     background:rgba(5,5,20,0.98) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
-    font-size:0.95rem !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.95) !important;
-    padding:12px 8px !important;
-    border-bottom: 3px solid #dc143c !important;
+    font-size:1rem !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
+    padding:14px 10px !important;
+    border-bottom: 4px solid #dc143c !important;
 }
 
-/* All data cells - white text */
+/* All Data Cells - White Text */
 [data-testid="stDataFrame"] td,
 [data-testid="stDataFrame"] [role="gridcell"] {
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:800 !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.95) !important;
-    font-size:0.9rem !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.98) !important;
+    font-size:0.95rem !important;
 }
 
-/* Force all table text elements white */
+/* Force ALL table text white */
 [data-testid="stDataFrame"] *,
 [data-testid="stDataFrame"] span,
 [data-testid="stDataFrame"] div {
@@ -167,26 +286,157 @@ button[aria-label*="download"] {
     -webkit-text-fill-color:#ffffff !important;
 }
 
-.stTabs [data-baseweb="tab-list"] { gap:10px; background:rgba(10,10,30,0.9); border-radius:15px; padding:12px; border:3px solid #dc143c; }
-.stTabs [data-baseweb="tab"] { background:linear-gradient(135deg,rgba(220,20,60,0.3),rgba(139,0,0,0.3)); border-radius:12px; color:#ffffff !important; font-weight:900 !important; font-size:1rem !important; padding:14px 22px; border:2px solid transparent; }
-.stTabs [aria-selected="true"] { background:linear-gradient(135deg,#dc143c,#ff0000); color:white !important; border:2px solid #ffffff; box-shadow:0 8px 20px rgba(220,20,60,0.7); }
-.stRadio > div { background:rgba(26,26,60,0.7); border-radius:12px; padding:20px; border:3px solid #dc143c; }
-.stRadio label { color:#ffffff !important; font-weight:900 !important; font-size:1.1rem !important; }
-.stSuccess { background:rgba(0,100,0,0.95) !important; border-left:6px solid #00ff00 !important; color:#ffffff !important; }
-.stInfo { background:rgba(0,50,150,0.95) !important; border-left:6px solid #0099ff !important; color:#ffffff !important; }
-.stWarning { background:rgba(200,100,0,0.95) !important; border-left:6px solid #ffcc00 !important; color:#ffffff !important; }
-.stError { background:rgba(150,0,0,0.95) !important; border-left:6px solid #ff0000 !important; color:#ffffff !important; }
-.stNumberInput input { background-color:#000000 !important; color:#ffffff !important; border:3px solid #dc143c !important; font-weight:900 !important; font-size:1.1rem !important; }
-hr { border:3px solid #dc143c; margin:30px 0; box-shadow:0 3px 15px rgba(220,20,60,0.7); }
-.kpi-card { background:linear-gradient(135deg,rgba(220,20,60,0.25),rgba(10,10,30,0.9)); border:2px solid #dc143c; border-radius:14px; padding:20px 14px; text-align:center; box-shadow:0 8px 24px rgba(220,20,60,0.4); transition:transform 0.2s ease; }
-.kpi-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(220,20,60,0.65); }
-.kpi-title { font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7) !important; margin-bottom:6px; font-weight:700; }
-.kpi-value { font-size:1.8rem; font-weight:900; color:#ff4444 !important; text-shadow:2px 2px 6px rgba(0,0,0,0.7); line-height:1.1; }
-.kpi-sub { font-size:0.75rem; color:rgba(255,255,255,0.6) !important; margin-top:4px; }
-.rank-card-red { background:linear-gradient(135deg,rgba(220,20,60,0.2),rgba(10,10,30,0.95)); border-left:5px solid #dc143c; border-radius:10px; padding:12px 16px; margin-bottom:8px; }
-.rank-card-green { background:linear-gradient(135deg,rgba(0,150,50,0.2),rgba(10,10,30,0.95)); border-left:5px solid #00cc44; border-radius:10px; padding:12px 16px; margin-bottom:8px; }
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] { 
+    gap:10px; 
+    background:rgba(10,10,30,0.9); 
+    border-radius:15px; 
+    padding:12px; 
+    border:3px solid #dc143c; 
+}
+
+.stTabs [data-baseweb="tab"] { 
+    background:linear-gradient(135deg,rgba(220,20,60,0.3),rgba(139,0,0,0.3)); 
+    border-radius:12px; 
+    color:#ffffff !important; 
+    font-weight:900 !important; 
+    font-size:1rem !important; 
+    padding:14px 22px; 
+    border:2px solid transparent; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+.stTabs [aria-selected="true"] { 
+    background:linear-gradient(135deg,#dc143c,#ff0000); 
+    color:white !important; 
+    border:2px solid #ffffff; 
+    box-shadow:0 8px 20px rgba(220,20,60,0.7); 
+}
+
+/* Radio Buttons */
+.stRadio > div { 
+    background:rgba(26,26,60,0.7); 
+    border-radius:12px; 
+    padding:20px; 
+    border:3px solid #dc143c; 
+}
+
+.stRadio label { 
+    color:#ffffff !important; 
+    font-weight:900 !important; 
+    font-size:1.1rem !important; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+/* Alert Boxes */
+.stSuccess { 
+    background:rgba(0,100,0,0.95) !important; 
+    border-left:6px solid #00ff00 !important; 
+    color:#ffffff !important; 
+}
+
+.stInfo { 
+    background:rgba(0,50,150,0.95) !important; 
+    border-left:6px solid #0099ff !important; 
+    color:#ffffff !important; 
+}
+
+.stWarning { 
+    background:rgba(200,100,0,0.95) !important; 
+    border-left:6px solid #ffcc00 !important; 
+    color:#ffffff !important; 
+}
+
+.stError { 
+    background:rgba(150,0,0,0.95) !important; 
+    border-left:6px solid #ff0000 !important; 
+    color:#ffffff !important; 
+}
+
+/* Number Input */
+.stNumberInput input { 
+    background-color:#000000 !important; 
+    color:#ffffff !important; 
+    border:3px solid #dc143c !important; 
+    font-weight:900 !important; 
+    font-size:1.1rem !important; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+/* Divider */
+hr { 
+    border:3px solid #dc143c; 
+    margin:30px 0; 
+    box-shadow:0 3px 15px rgba(220,20,60,0.7); 
+}
+
+/* KPI Cards */
+.kpi-card { 
+    background:linear-gradient(135deg,rgba(220,20,60,0.25),rgba(10,10,30,0.9)); 
+    border:2px solid #dc143c; 
+    border-radius:14px; 
+    padding:20px 14px; 
+    text-align:center; 
+    box-shadow:0 8px 24px rgba(220,20,60,0.4); 
+    transition:transform 0.2s ease; 
+}
+
+.kpi-card:hover { 
+    transform:translateY(-4px); 
+    box-shadow:0 14px 36px rgba(220,20,60,0.65); 
+}
+
+.kpi-title { 
+    font-size:0.75rem; 
+    letter-spacing:2px; 
+    text-transform:uppercase; 
+    color:rgba(255,255,255,0.7) !important; 
+    margin-bottom:6px; 
+    font-weight:700; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+.kpi-value { 
+    font-size:1.8rem; 
+    font-weight:900; 
+    color:#ff4444 !important; 
+    text-shadow:2px 2px 6px rgba(0,0,0,0.7); 
+    line-height:1.1; 
+}
+
+.kpi-sub { 
+    font-size:0.75rem; 
+    color:rgba(255,255,255,0.6) !important; 
+    margin-top:4px; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+}
+
+/* Rank Cards */
+.rank-card-red { 
+    background:linear-gradient(135deg,rgba(220,20,60,0.2),rgba(10,10,30,0.95)); 
+    border-left:5px solid #dc143c; 
+    border-radius:10px; 
+    padding:12px 16px; 
+    margin-bottom:8px; 
+}
+
+.rank-card-green { 
+    background:linear-gradient(135deg,rgba(0,150,50,0.2),rgba(10,10,30,0.95)); 
+    border-left:5px solid #00cc44; 
+    border-radius:10px; 
+    padding:12px 16px; 
+    margin-bottom:8px; 
+}
 </style>
 """, unsafe_allow_html=True)
+
+# Rest of the code continues exactly as provided...
+# (Due to length, I'm noting that the complete Python code from your document 
+# continues here with all 5 modules unchanged)
+
+# Copy all the constants, data loading, sidebar, modules, and footer
+# from the original code without any changes
+
 
 # ─────────────────────────────────────────────
 # CONSTANTS
