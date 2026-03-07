@@ -184,7 +184,10 @@ def _heat_color(val, vmin, vmax):
 
 
 def render_dark_table(df, heat_cols=None, height=420, show_index=True):
-    """Fully custom dark HTML table — no Streamlit iframe, total control."""
+    """
+    Fully inline-styled dark HTML table.
+    Every style is on the element itself — zero reliance on CSS classes or external sheets.
+    """
     heat_cols = heat_cols or []
     col_ranges = {}
     for c in heat_cols:
@@ -193,67 +196,122 @@ def render_dark_table(df, heat_cols=None, height=420, show_index=True):
             if len(nums):
                 col_ranges[c] = (float(nums.min()), float(nums.max()))
 
-    # header
+    TH = ("background:#12002a;color:#ffffff;font-weight:900;font-size:0.84rem;"
+          "padding:12px 14px;border-bottom:3px solid #dc143c;"
+          "border-right:1px solid rgba(220,20,60,0.35);text-align:center;"
+          "white-space:nowrap;position:sticky;top:0;z-index:2;"
+          "text-shadow:1px 1px 4px #000;")
+    TH_FIRST = TH + "text-align:left;border-right:3px solid #dc143c;"
+    TH_IDX   = TH + "min-width:38px;border-right:2px solid rgba(220,20,60,0.4);"
+
+    TD_IDX   = ("background:#0a0020;color:#aaaaaa;font-size:0.78rem;font-weight:600;"
+                "padding:10px 12px;text-align:center;border-bottom:1px solid rgba(220,20,60,0.15);"
+                "border-right:2px solid rgba(220,20,60,0.4);min-width:38px;")
+    TD_NAME  = ("background:#160035;color:#ffffff;font-weight:900;font-size:0.88rem;"
+                "padding:10px 14px;text-align:left;white-space:nowrap;"
+                "border-bottom:1px solid rgba(220,20,60,0.15);border-right:3px solid #dc143c;"
+                "text-shadow:1px 1px 3px #000;")
+    TD_BASE  = ("color:#ffffff;font-weight:700;font-size:0.88rem;"
+                "padding:10px 14px;text-align:right;"
+                "border-bottom:1px solid rgba(220,20,60,0.15);"
+                "border-right:1px solid rgba(220,20,60,0.1);"
+                "text-shadow:1px 1px 3px #000;")
+
+    # header row
     hdr = ""
     if show_index:
-        hdr += "<th style='min-width:38px;text-align:center'>#</th>"
+        hdr += f"<th style='{TH_IDX}'>#</th>"
     for col in df.columns:
-        hdr += f"<th>{col}</th>"
+        hdr += f"<th style='{TH}'>{col}</th>"
 
-    # rows
+    # body rows
     body = ""
-    for row_idx, (df_idx, row) in enumerate(df.iterrows()):
+    for i, (df_idx, row) in enumerate(df.iterrows()):
+        row_bg = "#07071a" if i % 2 == 0 else "#0d0d22"
         tds = ""
         if show_index:
-            tds += f"<td class='idx-cell'>{df_idx}</td>"
+            tds += f"<td style='{TD_IDX}'>{df_idx}</td>"
         for j, col in enumerate(df.columns):
             raw = row[col]
-            # choose background
             if col in col_ranges:
                 try:
                     bg = _heat_color(float(raw), *col_ranges[col])
-                except Exception:
-                    bg = "#07071a"
-                try:
                     display = f"{int(float(raw)):,}"
                 except Exception:
-                    display = str(raw)
-                tds += f"<td style='background:{bg};color:#fff;font-weight:900;'>{display}</td>"
+                    bg = row_bg; display = str(raw)
+                tds += (f"<td style='{TD_BASE}background:{bg};'>"
+                        f"<b>{display}</b></td>")
             elif j == 0:
-                tds += f"<td class='name-cell'>{raw}</td>"
+                tds += f"<td style='{TD_NAME}'>{raw}</td>"
             else:
-                tds += f"<td style='text-align:right;'>{raw}</td>"
+                tds += f"<td style='{TD_BASE}background:{row_bg};'>{raw}</td>"
         body += f"<tr>{tds}</tr>"
 
-    html = f"""<div class="dark-table-wrap" style="max-height:{height}px;">
-<table><thead><tr>{hdr}</tr></thead><tbody>{body}</tbody></table></div>"""
+    TABLE_WRAP = ("overflow-x:auto;overflow-y:auto;"
+                  f"max-height:{height}px;"
+                  "border:3px solid #dc143c;border-radius:12px;"
+                  "box-shadow:0 8px 28px rgba(220,20,60,0.45);"
+                  "background:#05050f;margin-bottom:8px;")
+    TABLE_STYLE = "border-collapse:collapse;width:100%;background:#05050f;"
+
+    html = (f'<div style="{TABLE_WRAP}">'
+            f'<table style="{TABLE_STYLE}">'
+            f'<thead><tr>{hdr}</tr></thead>'
+            f'<tbody>{body}</tbody>'
+            f'</table></div>')
     st.markdown(html, unsafe_allow_html=True)
 
 
 def render_simple_table(df, height=300, show_index=False):
-    """Plain dark table, no heatmap."""
+    """Plain dark table — no heatmap, all inline styles."""
+    TH = ("background:#12002a;color:#ffffff;font-weight:900;font-size:0.84rem;"
+          "padding:12px 14px;border-bottom:3px solid #dc143c;"
+          "border-right:1px solid rgba(220,20,60,0.3);text-align:center;"
+          "white-space:nowrap;position:sticky;top:0;")
+    TD_NAME = ("background:#160035;color:#ffffff;font-weight:900;font-size:0.88rem;"
+               "padding:10px 14px;text-align:left;"
+               "border-bottom:1px solid rgba(220,20,60,0.15);border-right:3px solid #dc143c;"
+               "text-shadow:1px 1px 3px #000;")
+    TD_VAL  = ("color:#ffffff;font-size:0.88rem;font-weight:700;"
+               "padding:10px 14px;text-align:right;"
+               "border-bottom:1px solid rgba(220,20,60,0.15);"
+               "border-right:1px solid rgba(220,20,60,0.1);"
+               "text-shadow:1px 1px 3px #000;")
+
     hdr = ""
     if show_index:
-        hdr += "<th style='text-align:center'>#</th>"
+        hdr += f"<th style='{TH}min-width:38px;'>#</th>"
     for col in df.columns:
-        hdr += f"<th>{col}</th>"
+        hdr += f"<th style='{TH}'>{col}</th>"
+
     body = ""
-    for df_idx, row in df.iterrows():
+    for i, (df_idx, row) in enumerate(df.iterrows()):
+        row_bg = "#07071a" if i % 2 == 0 else "#0d0d22"
         tds = ""
         if show_index:
-            tds += f"<td class='idx-cell'>{df_idx}</td>"
+            tds += (f"<td style='background:#0a0020;color:#aaaaaa;font-size:0.78rem;"
+                    f"padding:10px 12px;text-align:center;"
+                    f"border-bottom:1px solid rgba(220,20,60,0.15);'>{df_idx}</td>")
         for j, col in enumerate(df.columns):
-            cls = "name-cell" if j == 0 else ""
-            align = "left" if j == 0 else "right"
-            tds += f"<td class='{cls}' style='text-align:{align};'>{row[col]}</td>"
+            if j == 0:
+                tds += f"<td style='{TD_NAME}'>{row[col]}</td>"
+            else:
+                tds += f"<td style='{TD_VAL}background:{row_bg};'>{row[col]}</td>"
         body += f"<tr>{tds}</tr>"
-    html = f"""<div class="dark-table-wrap" style="max-height:{height}px;">
-<table><thead><tr>{hdr}</tr></thead><tbody>{body}</tbody></table></div>"""
+
+    TABLE_WRAP = ("overflow-x:auto;overflow-y:auto;"
+                  f"max-height:{height}px;"
+                  "border:3px solid #dc143c;border-radius:12px;"
+                  "box-shadow:0 8px 28px rgba(220,20,60,0.45);"
+                  "background:#05050f;margin-bottom:8px;")
+    html = (f'<div style="{TABLE_WRAP}">'
+            f'<table style="border-collapse:collapse;width:100%;background:#05050f;">'
+            f'<thead><tr>{hdr}</tr></thead><tbody>{body}</tbody></table></div>')
     st.markdown(html, unsafe_allow_html=True)
 
 
 def render_pivot_table(df, height=320):
-    """Pivot table with all-numeric heatmap."""
+    """Pivot table — all numeric cols heatmapped, all inline styles."""
     all_vals = []
     for col in df.columns:
         try:
@@ -263,24 +321,44 @@ def render_pivot_table(df, height=320):
     vmin = min(all_vals) if all_vals else 0
     vmax = max(all_vals) if all_vals else 1
 
-    hdr = f"<th style='text-align:left'>{df.index.name or 'State'}</th>"
+    TH = ("background:#12002a;color:#ffffff;font-weight:900;font-size:0.84rem;"
+          "padding:12px 14px;border-bottom:3px solid #dc143c;"
+          "border-right:1px solid rgba(220,20,60,0.3);text-align:center;"
+          "white-space:nowrap;position:sticky;top:0;")
+    TD_NAME = ("background:#160035;color:#ffffff;font-weight:900;font-size:0.88rem;"
+               "padding:10px 14px;text-align:left;white-space:nowrap;"
+               "border-bottom:1px solid rgba(220,20,60,0.15);border-right:3px solid #dc143c;"
+               "text-shadow:1px 1px 3px #000;")
+
+    hdr = f"<th style='{TH}text-align:left;border-right:3px solid #dc143c;'>{df.index.name or 'State'}</th>"
     for col in df.columns:
-        hdr += f"<th>{col}</th>"
+        hdr += f"<th style='{TH}'>{col}</th>"
 
     body = ""
     for idx, row in df.iterrows():
-        tds = f"<td class='name-cell'>{idx}</td>"
+        tds = f"<td style='{TD_NAME}'>{idx}</td>"
         for col in df.columns:
             try:
                 bg = _heat_color(float(row[col]), vmin, vmax)
                 display = f"{int(float(row[col])):,}"
             except Exception:
                 bg = "#07071a"; display = str(row[col])
-            tds += f"<td style='background:{bg};color:#fff;font-weight:900;'>{display}</td>"
+            tds += (f"<td style='background:{bg};color:#ffffff;font-weight:900;"
+                    f"font-size:0.88rem;padding:10px 14px;text-align:right;"
+                    f"border-bottom:1px solid rgba(220,20,60,0.15);"
+                    f"border-right:1px solid rgba(220,20,60,0.1);"
+                    f"text-shadow:1px 1px 3px #000;'>"
+                    f"<b>{display}</b></td>")
         body += f"<tr>{tds}</tr>"
 
-    html = f"""<div class="dark-table-wrap" style="max-height:{height}px;">
-<table><thead><tr>{hdr}</tr></thead><tbody>{body}</tbody></table></div>"""
+    TABLE_WRAP = ("overflow-x:auto;overflow-y:auto;"
+                  f"max-height:{height}px;"
+                  "border:3px solid #dc143c;border-radius:12px;"
+                  "box-shadow:0 8px 28px rgba(220,20,60,0.45);"
+                  "background:#05050f;margin-bottom:8px;")
+    html = (f'<div style="{TABLE_WRAP}">'
+            f'<table style="border-collapse:collapse;width:100%;background:#05050f;">'
+            f'<thead><tr>{hdr}</tr></thead><tbody>{body}</tbody></table></div>')
     st.markdown(html, unsafe_allow_html=True)
 
 
