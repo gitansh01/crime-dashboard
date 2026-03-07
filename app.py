@@ -14,9 +14,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ═══════════════════════════════════════════════════════
-# MAXIMUM VISIBILITY CSS - ALL ELEMENTS OPTIMIZED
-# ═══════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════
+# OPTIMIZED CSS - MAXIMUM VISIBILITY FOR ALL ELEMENTS
+# ═══════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
 /* Main Background */
@@ -32,32 +32,32 @@ st.markdown("""
 }
 [data-testid="stSidebar"] * { 
     color:#ffffff !important; 
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.95);
 }
 
-/* All Text Elements - Maximum Visibility */
+/* All Text - Maximum Contrast */
 label,.stMarkdown,.stText,p,span,div { 
     color:#ffffff !important; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9); 
+    text-shadow:2px 2px 5px rgba(0,0,0,0.95); 
 }
 
-/* Selectbox Label */
+/* Selectbox Label - BRIGHT WHITE */
 .stSelectbox label { 
     color:#ffffff !important; 
     font-weight:900 !important; 
-    font-size:1.1rem !important; 
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    font-size:1.15rem !important; 
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
-/* Selectbox - Dark Background, White Text */
+/* Selectbox Dropdown - BLACK BACKGROUND + BRIGHT WHITE TEXT */
 .stSelectbox div[data-baseweb="select"] > div {
     background-color:#000000 !important; 
     color:#ffffff !important;
     border:4px solid #dc143c !important; 
     font-weight:900 !important;
-    font-size:1.2rem !important; 
-    min-height:52px !important;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    font-size:1.25rem !important; 
+    min-height:54px !important;
+    text-shadow:2px 2px 6px rgba(0,0,0,1);
 }
 
 .stSelectbox div[data-baseweb="select"] span,
@@ -69,29 +69,29 @@ label,.stMarkdown,.stText,p,span,div {
     color:#ffffff !important; 
     font-weight:900 !important; 
     -webkit-text-fill-color:#ffffff !important;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    text-shadow:2px 2px 6px rgba(0,0,0,1);
 }
 
 .stSelectbox svg { fill:#dc143c !important; }
 
-/* Dropdown Menu - Black Background */
+/* Dropdown Menu - BLACK */
 [data-baseweb="popover"] { 
     background-color:#000000 !important; 
     border:4px solid #dc143c !important; 
 }
 
-/* Dropdown Options - Black with White Text */
+/* Dropdown Options - BLACK with BRIGHT WHITE TEXT */
 .stSelectbox li,
 [data-baseweb="menu"] li,
 [role="option"] {
     background-color:#000000 !important; 
     color:#ffffff !important;
     font-weight:900 !important; 
-    font-size:1.1rem !important;
-    padding:16px 24px !important; 
+    font-size:1.15rem !important;
+    padding:18px 26px !important; 
     border-bottom:2px solid #333 !important;
     -webkit-text-fill-color:#ffffff !important;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    text-shadow:2px 2px 6px rgba(0,0,0,1);
 }
 
 .stSelectbox li:hover,
@@ -99,10 +99,10 @@ label,.stMarkdown,.stText,p,span,div {
     background:linear-gradient(135deg,#dc143c,#ff0000) !important; 
 }
 
-/* Headers */
+/* Headers - MAXIMUM VISIBILITY */
 h1 { 
     color:#ffffff !important; 
-    text-shadow:5px 5px 10px rgba(0,0,0,0.9); 
+    text-shadow:6px 6px 12px rgba(0,0,0,1); 
     font-size:2.8rem !important; 
     font-weight:900 !important; 
     text-align:center; 
@@ -111,7 +111,7 @@ h1 {
 h2,h3,h4 { 
     color:#ffffff !important; 
     font-weight:900 !important; 
-    text-shadow:3px 3px 8px rgba(0,0,0,0.9); 
+    text-shadow:4px 4px 10px rgba(0,0,0,1); 
 }
 
 h2 { font-size:1.8rem !important; } 
@@ -131,13 +131,13 @@ h4 { font-size:1.3rem !important; }
     font-size:2.5rem !important; 
     font-weight:900 !important; 
     color:#ff0000 !important; 
-    text-shadow:4px 4px 8px rgba(0,0,0,0.9); 
+    text-shadow:5px 5px 10px rgba(0,0,0,1); 
 }
 
 [data-testid="stMetricLabel"] { 
     color:#ffffff !important; 
     font-weight:800 !important; 
-    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 /* Regular Buttons */
@@ -145,61 +145,63 @@ h4 { font-size:1.3rem !important; }
     background:linear-gradient(135deg,#dc143c,#8b0000) !important; 
     color:white !important;
     font-weight:900 !important; 
-    font-size:1.1rem !important; 
+    font-size:1.15rem !important; 
     border:4px solid #ff0000 !important;
     border-radius:12px !important; 
-    padding:16px 40px !important; 
-    box-shadow:0 8px 20px rgba(220,20,60,0.6);
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    padding:18px 42px !important; 
+    box-shadow:0 10px 24px rgba(220,20,60,0.7);
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 .stButton>button:hover { 
     transform:translateY(-3px); 
-    box-shadow:0 12px 30px rgba(220,20,60,0.8); 
+    box-shadow:0 14px 34px rgba(220,20,60,0.9); 
 }
 
-/* Download Buttons - HIGHLY VISIBLE */
+/* Download Buttons - HIGHLY VISIBLE BLUE */
 .stDownloadButton>button {
     background:linear-gradient(135deg,#0066cc,#003d82) !important; 
     color:#ffffff !important;
     font-weight:900 !important; 
-    font-size:1.2rem !important; 
-    border:4px solid #ffffff !important;
-    border-radius:12px !important; 
-    padding:18px 40px !important; 
-    box-shadow:0 10px 25px rgba(0,102,204,0.7);
-    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+    font-size:1.25rem !important; 
+    border:5px solid #ffffff !important;
+    border-radius:14px !important; 
+    padding:20px 44px !important; 
+    box-shadow:0 12px 30px rgba(0,102,204,0.8);
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 .stDownloadButton>button:hover { 
     transform:translateY(-3px); 
     background:linear-gradient(135deg,#0080ff,#0066cc) !important; 
+    box-shadow:0 16px 38px rgba(0,102,204,1);
 }
 
 .stDownloadButton>button span { 
     color:#ffffff !important; 
     font-weight:900 !important; 
-    text-shadow:2px 2px 6px rgba(0,0,0,0.9);
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
-/* ═══════════════════════════════════════════
-   TABLE BUTTONS - MAXIMUM VISIBILITY
-   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   TABLE BUTTONS - MAXIMUM VISIBILITY (RED FULLSCREEN, BLUE DOWNLOAD)
+   ═══════════════════════════════════════════════════════════════ */
 button[title="View fullscreen"],
 button[aria-label="View fullscreen"],
 button[title*="fullscreen"],
 button[aria-label*="fullscreen"] {
     background:#dc143c !important; 
     color:#ffffff !important;
-    border:4px solid #ffffff !important; 
+    border:5px solid #ffffff !important; 
     border-radius:10px !important;
     font-weight:900 !important; 
     opacity:1 !important; 
     visibility:visible !important;
-    padding:12px 18px !important; 
-    font-size:1.1rem !important;
-    box-shadow: 0 8px 20px rgba(220,20,60,0.9) !important;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    padding:14px 20px !important; 
+    font-size:1.15rem !important;
+    box-shadow: 0 10px 24px rgba(220,20,60,1) !important;
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
+    z-index:9999 !important;
 }
 
 button[title="Download"],
@@ -208,77 +210,78 @@ button[title*="download"],
 button[aria-label*="download"] {
     background:#0066cc !important; 
     color:#ffffff !important;
-    border:4px solid #ffffff !important; 
+    border:5px solid #ffffff !important; 
     border-radius:10px !important;
     font-weight:900 !important; 
     opacity:1 !important; 
     visibility:visible !important;
-    padding:12px 18px !important; 
-    font-size:1.1rem !important;
-    box-shadow: 0 8px 20px rgba(0,102,204,0.9) !important;
-    text-shadow:2px 2px 6px rgba(0,0,0,0.95);
+    padding:14px 20px !important; 
+    font-size:1.15rem !important;
+    box-shadow: 0 10px 24px rgba(0,102,204,1) !important;
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
+    z-index:9999 !important;
 }
 
-/* ═══════════════════════════════════════════
-   DATAFRAME / TABLE STYLING
-   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   DATAFRAME / TABLE - COMPLETE VISIBILITY FIX
+   ═══════════════════════════════════════════════════════════════ */
 
-/* Table Container - Very Dark */
+/* Table Container - ALMOST BLACK */
 [data-testid="stDataFrame"] {
     background:rgba(0,0,0,0.98) !important; 
-    border-radius:12px; 
+    border-radius:14px; 
     border:4px solid #dc143c;
-    box-shadow:0 15px 40px rgba(0,0,0,0.8); 
-    padding-top:10px !important;
+    box-shadow:0 16px 44px rgba(0,0,0,0.9); 
+    padding-top:12px !important;
 }
 
-/* YEAR/Index Column - ALMOST BLACK with BRIGHT WHITE text */
+/* YEAR/Index Column (FIRST COLUMN) - PURE BLACK with BRIGHT WHITE text */
 [data-testid="stDataFrame"] [role="gridcell"]:first-child {
-    background:rgba(0,0,5,1) !important;
+    background:rgba(0,0,0,1) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
-    font-size:1.05rem !important;
-    text-shadow: 3px 3px 10px rgba(0,0,0,1) !important;
-    border-right: 4px solid #dc143c !important;
-    padding: 14px !important;
+    font-size:1.1rem !important;
+    text-shadow: 4px 4px 12px rgba(0,0,0,1), 0 0 8px rgba(255,255,255,0.3) !important;
+    border-right: 5px solid #dc143c !important;
+    padding: 16px !important;
 }
 
 [data-testid="stDataFrame"] th:first-child {
-    background:rgba(0,0,5,1) !important;
+    background:rgba(0,0,0,1) !important;
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    font-weight:900 !important;
+    font-size:1.1rem !important;
+    text-shadow: 4px 4px 12px rgba(0,0,0,1), 0 0 8px rgba(255,255,255,0.3) !important;
+    border-right: 5px solid #dc143c !important;
+    padding: 16px !important;
+}
+
+/* All Table Headers - DARK BACKGROUND + BRIGHT WHITE TEXT */
+[data-testid="stDataFrame"] th,
+[data-testid="stDataFrame"] [role="columnheader"] {
+    background:rgba(5,5,15,0.98) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
     font-size:1.05rem !important;
-    text-shadow: 3px 3px 10px rgba(0,0,0,1) !important;
-    border-right: 4px solid #dc143c !important;
-    padding: 14px !important;
+    text-shadow: 3px 3px 10px rgba(0,0,0,1), 0 0 6px rgba(255,255,255,0.2) !important;
+    padding:16px 12px !important;
+    border-bottom: 5px solid #dc143c !important;
 }
 
-/* All Table Headers */
-[data-testid="stDataFrame"] th,
-[data-testid="stDataFrame"] [role="columnheader"] {
-    background:rgba(5,5,20,0.98) !important;
-    color:#ffffff !important;
-    -webkit-text-fill-color:#ffffff !important;
-    font-weight:900 !important;
-    font-size:1rem !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
-    padding:14px 10px !important;
-    border-bottom: 4px solid #dc143c !important;
-}
-
-/* All Data Cells - White Text */
+/* All Data Cells - BRIGHT WHITE TEXT with SHADOW */
 [data-testid="stDataFrame"] td,
 [data-testid="stDataFrame"] [role="gridcell"] {
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
-    font-weight:800 !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.98) !important;
-    font-size:0.95rem !important;
+    font-weight:900 !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.98), 0 0 4px rgba(255,255,255,0.15) !important;
+    font-size:1rem !important;
 }
 
-/* Force ALL table text white */
+/* Force ALL table text elements BRIGHT WHITE */
 [data-testid="stDataFrame"] *,
 [data-testid="stDataFrame"] span,
 [data-testid="stDataFrame"] div {
@@ -288,44 +291,44 @@ button[aria-label*="download"] {
 
 /* Tabs */
 .stTabs [data-baseweb="tab-list"] { 
-    gap:10px; 
+    gap:12px; 
     background:rgba(10,10,30,0.9); 
-    border-radius:15px; 
-    padding:12px; 
-    border:3px solid #dc143c; 
+    border-radius:16px; 
+    padding:14px; 
+    border:4px solid #dc143c; 
 }
 
 .stTabs [data-baseweb="tab"] { 
     background:linear-gradient(135deg,rgba(220,20,60,0.3),rgba(139,0,0,0.3)); 
-    border-radius:12px; 
+    border-radius:14px; 
     color:#ffffff !important; 
     font-weight:900 !important; 
-    font-size:1rem !important; 
-    padding:14px 22px; 
+    font-size:1.05rem !important; 
+    padding:16px 24px; 
     border:2px solid transparent; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 .stTabs [aria-selected="true"] { 
     background:linear-gradient(135deg,#dc143c,#ff0000); 
     color:white !important; 
-    border:2px solid #ffffff; 
-    box-shadow:0 8px 20px rgba(220,20,60,0.7); 
+    border:3px solid #ffffff; 
+    box-shadow:0 10px 24px rgba(220,20,60,0.8); 
 }
 
 /* Radio Buttons */
 .stRadio > div { 
     background:rgba(26,26,60,0.7); 
-    border-radius:12px; 
-    padding:20px; 
-    border:3px solid #dc143c; 
+    border-radius:14px; 
+    padding:22px; 
+    border:4px solid #dc143c; 
 }
 
 .stRadio label { 
     color:#ffffff !important; 
     font-weight:900 !important; 
-    font-size:1.1rem !important; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    font-size:1.15rem !important; 
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 /* Alert Boxes */
@@ -353,90 +356,82 @@ button[aria-label*="download"] {
     color:#ffffff !important; 
 }
 
-/* Number Input */
+/* Number Input - BLACK BACKGROUND + WHITE TEXT */
 .stNumberInput input { 
     background-color:#000000 !important; 
     color:#ffffff !important; 
-    border:3px solid #dc143c !important; 
+    border:4px solid #dc143c !important; 
     font-weight:900 !important; 
-    font-size:1.1rem !important; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    font-size:1.15rem !important; 
+    text-shadow:2px 2px 6px rgba(0,0,0,1);
 }
 
 /* Divider */
 hr { 
-    border:3px solid #dc143c; 
-    margin:30px 0; 
-    box-shadow:0 3px 15px rgba(220,20,60,0.7); 
+    border:4px solid #dc143c; 
+    margin:32px 0; 
+    box-shadow:0 4px 18px rgba(220,20,60,0.8); 
 }
 
 /* KPI Cards */
 .kpi-card { 
     background:linear-gradient(135deg,rgba(220,20,60,0.25),rgba(10,10,30,0.9)); 
-    border:2px solid #dc143c; 
-    border-radius:14px; 
-    padding:20px 14px; 
+    border:3px solid #dc143c; 
+    border-radius:16px; 
+    padding:22px 16px; 
     text-align:center; 
-    box-shadow:0 8px 24px rgba(220,20,60,0.4); 
+    box-shadow:0 10px 28px rgba(220,20,60,0.5); 
     transition:transform 0.2s ease; 
 }
 
 .kpi-card:hover { 
-    transform:translateY(-4px); 
-    box-shadow:0 14px 36px rgba(220,20,60,0.65); 
+    transform:translateY(-5px); 
+    box-shadow:0 16px 42px rgba(220,20,60,0.7); 
 }
 
 .kpi-title { 
-    font-size:0.75rem; 
+    font-size:0.8rem; 
     letter-spacing:2px; 
     text-transform:uppercase; 
-    color:rgba(255,255,255,0.7) !important; 
-    margin-bottom:6px; 
-    font-weight:700; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    color:rgba(255,255,255,0.8) !important; 
+    margin-bottom:8px; 
+    font-weight:800; 
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 .kpi-value { 
-    font-size:1.8rem; 
+    font-size:1.9rem; 
     font-weight:900; 
     color:#ff4444 !important; 
-    text-shadow:2px 2px 6px rgba(0,0,0,0.7); 
-    line-height:1.1; 
+    text-shadow:3px 3px 8px rgba(0,0,0,0.8); 
+    line-height:1.15; 
 }
 
 .kpi-sub { 
-    font-size:0.75rem; 
-    color:rgba(255,255,255,0.6) !important; 
-    margin-top:4px; 
-    text-shadow:2px 2px 4px rgba(0,0,0,0.9);
+    font-size:0.8rem; 
+    color:rgba(255,255,255,0.7) !important; 
+    margin-top:6px; 
+    text-shadow:3px 3px 8px rgba(0,0,0,1);
 }
 
 /* Rank Cards */
 .rank-card-red { 
-    background:linear-gradient(135deg,rgba(220,20,60,0.2),rgba(10,10,30,0.95)); 
-    border-left:5px solid #dc143c; 
-    border-radius:10px; 
-    padding:12px 16px; 
-    margin-bottom:8px; 
+    background:linear-gradient(135deg,rgba(220,20,60,0.25),rgba(10,10,30,0.95)); 
+    border-left:6px solid #dc143c; 
+    border-radius:12px; 
+    padding:14px 18px; 
+    margin-bottom:10px; 
 }
 
 .rank-card-green { 
-    background:linear-gradient(135deg,rgba(0,150,50,0.2),rgba(10,10,30,0.95)); 
-    border-left:5px solid #00cc44; 
-    border-radius:10px; 
-    padding:12px 16px; 
-    margin-bottom:8px; 
+    background:linear-gradient(135deg,rgba(0,150,50,0.25),rgba(10,10,30,0.95)); 
+    border-left:6px solid #00cc44; 
+    border-radius:12px; 
+    padding:14px 18px; 
+    margin-bottom:10px; 
 }
 </style>
 """, unsafe_allow_html=True)
-
-# Rest of the code continues exactly as provided...
-# (Due to length, I'm noting that the complete Python code from your document 
-# continues here with all 5 modules unchanged)
-
-# Copy all the constants, data loading, sidebar, modules, and footer
-# from the original code without any changes
-
 
 # ─────────────────────────────────────────────
 # CONSTANTS
@@ -590,21 +585,6 @@ def dark_layout(title="", h=460, dtick_x=1):
             font=dict(color='#ffffff', size=14, family='Arial Black')
         )
     )
-
-
-# ═══════════════════════════════════════════════════════
-# MODULE 1 — NATIONAL OVERVIEW
-# ═══════════════════════════════════════════════════════
-if "National Overview" in menu:
-    st.markdown("<h2>🏠 NATIONAL CRIME OVERVIEW — INDIA</h2>", unsafe_allow_html=True)
-    latest    = df_state[df_state["YEAR"]==YEARS[-1]]
-    prev      = df_state[df_state["YEAR"]==YEARS[-2]]
-    total_l   = int(latest["TOTAL IPC CRIMES"].sum())
-    total_p   = int(prev["TOTAL IPC CRIMES"].sum())
-    yoy_pct   = ((total_l-total_p)/total_p)*100
-    worst     = latest.loc[latest["TOTAL IPC CRIMES"].idxmax(),"STATE/UT"]
-    safest    = latest.loc[latest["TOTAL IPC CRIMES"].idxmin(),"STATE/UT"]
-    top_cat   = latest[PLOT_CRIMES].sum().idxmax()
     all_total = int(df_state["TOTAL IPC CRIMES"].sum())
 
     kpi_data = [
