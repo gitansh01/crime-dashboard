@@ -78,48 +78,68 @@ button[title="View fullscreen"],
 button[aria-label="View fullscreen"],
 button[title*="fullscreen"],
 button[aria-label*="fullscreen"] {
-    background:rgba(220,20,60,0.95) !important; color:#ffffff !important;
-    border:3px solid #ffffff !important; border-radius:8px !important;
-    font-weight:900 !important; opacity:1 !important; visibility:visible !important;
-    padding:8px 14px !important; font-size:0.9rem !important;
-    box-shadow: 0 4px 12px rgba(220,20,60,0.6) !important;
+    background:#dc143c !important; 
+    color:#ffffff !important;
+    border:3px solid #ffffff !important; 
+    border-radius:8px !important;
+    font-weight:900 !important; 
+    opacity:1 !important; 
+    visibility:visible !important;
+    padding:10px 16px !important; 
+    font-size:1rem !important;
+    box-shadow: 0 6px 16px rgba(220,20,60,0.8) !important;
 }
 button[title="Download"],
 button[aria-label="Download"],
 button[title*="download"],
 button[aria-label*="download"] {
-    background:rgba(0,80,180,0.95) !important; color:#ffffff !important;
-    border:3px solid #ffffff !important; border-radius:8px !important;
-    font-weight:900 !important; opacity:1 !important; visibility:visible !important;
-    padding:8px 14px !important; font-size:0.9rem !important;
-    box-shadow: 0 4px 12px rgba(0,80,180,0.6) !important;
+    background:#0066cc !important; 
+    color:#ffffff !important;
+    border:3px solid #ffffff !important; 
+    border-radius:8px !important;
+    font-weight:900 !important; 
+    opacity:1 !important; 
+    visibility:visible !important;
+    padding:10px 16px !important; 
+    font-size:1rem !important;
+    box-shadow: 0 6px 16px rgba(0,102,204,0.8) !important;
 }
 
-/* Table container */
+/* Table container - VERY DARK background */
 [data-testid="stDataFrame"] {
-    background:rgba(5,5,20,0.98) !important; 
+    background:rgba(0,0,0,0.95) !important; 
     border-radius:12px; 
     border:3px solid #dc143c;
     box-shadow:0 12px 30px rgba(0,0,0,0.7); 
     padding-top:8px !important;
 }
 
-/* CRITICAL FIX: First column (YEAR/Index) - DARK background + WHITE text */
-[data-testid="stDataFrame"] [role="gridcell"]:first-child,
-[data-testid="stDataFrame"] th:first-child {
-    background:rgba(10,10,30,0.98) !important;
+/* CRITICAL FIX: First column (YEAR/Index) - VERY DARK background + BRIGHT WHITE text */
+[data-testid="stDataFrame"] [role="gridcell"]:first-child {
+    background:rgba(0,0,10,0.99) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
-    font-size:0.95rem !important;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.95) !important;
-    border-right: 2px solid rgba(220,20,60,0.4) !important;
+    font-size:1rem !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
+    border-right: 3px solid #dc143c !important;
+    padding: 12px !important;
+}
+
+[data-testid="stDataFrame"] th:first-child {
+    background:rgba(0,0,10,0.99) !important;
+    color:#ffffff !important;
+    -webkit-text-fill-color:#ffffff !important;
+    font-weight:900 !important;
+    font-size:1rem !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1) !important;
+    border-right: 3px solid #dc143c !important;
 }
 
 /* All table headers - dark background */
 [data-testid="stDataFrame"] th,
 [data-testid="stDataFrame"] [role="columnheader"] {
-    background:rgba(10,10,30,0.98) !important;
+    background:rgba(5,5,20,0.98) !important;
     color:#ffffff !important;
     -webkit-text-fill-color:#ffffff !important;
     font-weight:900 !important;
